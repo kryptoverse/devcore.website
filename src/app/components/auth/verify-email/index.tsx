@@ -73,7 +73,7 @@ const VerifyEmail = () => {
 
         setLoading(true)
         try {
-            const res = await fetch("http://localhost:5000/api/v1/auth/verify-email", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/verify-email`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ Code: verificationCode }),
@@ -102,7 +102,7 @@ const VerifyEmail = () => {
 
         setResendLoading(true)
         try {
-            const res = await fetch("http://localhost:5000/api/v1/auth/resend-verification", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/resend-verification`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),

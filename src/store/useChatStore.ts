@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { io, Socket } from "socket.io-client";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 // Define Types
 interface User {
