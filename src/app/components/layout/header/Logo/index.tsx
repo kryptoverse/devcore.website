@@ -6,23 +6,21 @@ const Logo: React.FC<HeaderProps> = () => {
     return (
         <Link href="/">
             <Image
-                src="/images/logo/logo.svg"
+                src="/images/logo/DarkModeLogo.png"
                 alt="logo"
-                width={117}
-                height={34}
-                style={{ width: 'auto', height: 'auto' }}
+                width={120}
+                height={40}
                 quality={100}
                 priority={true}
-                className='dark:hidden'
+                className='dark:hidden w-[120px] h-auto object-contain'
             />
             <Image
-                src="/images/logo/DarkModeLogo.svg"
+                src="/images/logo/logo.png"
                 alt="logo"
-                width={160}
-                height={50}
-                style={{ width: 'auto', height: 'auto' }}
+                width={120}
+                height={40}
                 quality={100}
-                className='dark:block hidden'
+                className='dark:block hidden w-[120px] h-auto object-contain'
             />
         </Link>
     );

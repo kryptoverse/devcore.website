@@ -49,18 +49,6 @@ const brandList = [
 
 const innovationList = [
   {
-    image: '/images/home/innovation/brand.svg',
-    title: 'Brand\nStrategy',
-    bg_color: 'bg-purple/20',
-    txt_color: 'text-purple',
-  },
-  {
-    image: '/images/home/innovation/digitalmarketing.svg',
-    title: 'Digital\nMarketing',
-    bg_color: 'bg-blue/20',
-    txt_color: 'text-blue',
-  },
-  {
     image: '/images/home/innovation/uiux.svg',
     title: 'UI/UX\nDesign',
     bg_color: 'bg-orange/20',
@@ -68,15 +56,27 @@ const innovationList = [
   },
   {
     image: '/images/home/innovation/analitics.svg',
-    title: 'Analytics &\nReporting',
-    bg_color: 'bg-green/20',
-    txt_color: 'text-green',
+    title: 'Blockchain\nDevelopment',
+    bg_color: 'bg-blue/20',
+    txt_color: 'text-blue',
+  },
+  {
+    image: '/images/home/innovation/brand.svg',
+    title: 'Game\nDevelopment',
+    bg_color: 'bg-purple/20',
+    txt_color: 'text-purple',
   },
   {
     image: '/images/home/innovation/webdevp.svg',
-    title: 'Web\nDevelopment',
+    title: 'Website\nDevelopment',
     bg_color: 'bg-pink/20',
     txt_color: 'text-pink',
+  },
+  {
+    image: '/images/home/innovation/digitalmarketing.svg',
+    title: 'AI &\nAutomation',
+    bg_color: 'bg-green/20',
+    txt_color: 'text-green',
   },
 ]
 

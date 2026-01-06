@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import SocialSignIn from '../SocialSignIn'
 import { useState } from 'react'
 import Loader from '../../shared/loader'
 import Logo from '../../layout/header/Logo'
@@ -53,8 +52,8 @@ const SignUp = () => {
         name === 'name'
           ? validateName(value)
           : name === 'email'
-          ? validateEmail(value)
-          : validatePassword(value),
+            ? validateEmail(value)
+            : validatePassword(value),
     }))
   }
 
@@ -74,11 +73,28 @@ const SignUp = () => {
 
     setLoading(true)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      localStorage.setItem('user', JSON.stringify({ user: formData.name }))
-      router.push('/')
-    } catch (error) {
-      toast.error('Something went wrong. Please try again.')
+      const res = await fetch("http://localhost:5000/api/v1/auth/sign-up", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      toast.success(data.message || 'Account created successfully!');
+      // Store user email for the verification page to use
+      localStorage.setItem('user', JSON.stringify({ email: formData.email }));
+      router.push('/verify-email')
+    } catch (error: any) {
+      toast.error(error.message || 'Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -95,15 +111,6 @@ const SignUp = () => {
                   <Logo />
                 </div>
 
-                <SocialSignIn actionText='Sign Up' />
-
-                <span className='z-1 relative my-8 block text-center'>
-                  <span className='-z-1 absolute left-0 top-1/2 block h-px w-full bg-dark_black/10 dark:bg-white/20 dark:bg-opacity-20 bg-opacity-10'></span>
-                  <span className='text-sm text-dark_black/50 dark:text-white/40 relative z-10 inline-block dark:bg-dark_black bg-white px-3'>
-                    OR
-                  </span>
-                </span>
-
                 <form onSubmit={handleSubmit}>
                   <div className='mb-5 text-left'>
                     <input
@@ -113,11 +120,10 @@ const SignUp = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className={`w-full rounded-full border px-5 py-3 outline-hidden transition  focus:border-dark_black dark:border-white/20 dark:bg-black/50
-                                                ${
-                                                  errors.name
-                                                    ? 'border-red-500 dark:border-red-500'
-                                                    : 'border-stroke'
-                                                } 
+                                                ${errors.name
+                          ? 'border-red-500 dark:border-red-500'
+                          : 'border-stroke'
+                        } 
                                                 focus:border-dark_black/50 dark:focus:border-white/50`}
                     />
                     {errors.name && (
@@ -134,11 +140,10 @@ const SignUp = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full rounded-full border px-5 py-3 outline-hidden transition  focus:border-dark_black dark:border-white/20 dark:bg-black/50
-                                                ${
-                                                  errors.email
-                                                    ? 'border-red-500 dark:border-red-500'
-                                                    : 'border-stroke'
-                                                }
+                                                ${errors.email
+                          ? 'border-red-500 dark:border-red-500'
+                          : 'border-stroke'
+                        }
                                                 focus:border-dark_black/50 dark:focus:border-white/50`}
                     />
                     {errors.email && (
@@ -155,11 +160,10 @@ const SignUp = () => {
                       value={formData.password}
                       onChange={handleChange}
                       className={`w-full rounded-full border px-5 py-3 outline-hidden transition focus:border-dark_black dark:border-white/20 dark:bg-black/50
-                                                ${
-                                                  errors.password
-                                                    ? 'border-red-500 dark:border-red-500'
-                                                    : 'border-stroke'
-                                                }
+                                                ${errors.password
+                          ? 'border-red-500 dark:border-red-500'
+                          : 'border-stroke'
+                        }
                                                 focus:border-dark_black dark:focus:border-white focus:border-opacity-50 dark:focus:border-opacity-50 `}
                     />
                     {errors.password && (

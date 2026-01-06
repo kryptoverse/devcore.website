@@ -1,6 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 import nodemailer from "nodemailer";
 
 export const authOptions: NextAuthOptions = {
@@ -22,6 +23,48 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error('Please enter an email and password')
+        }
+
+        try {
+          const res = await fetch("http://localhost:5000/api/v1/auth/sign-in", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: credentials.email,
+              password: credentials.password,
+            }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            throw new Error(data.message || 'Authentication failed');
+          }
+
+          if (data && data.user) {
+            return {
+              id: data.user._id,
+              name: data.user.name,
+              email: data.user.email,
+              role: data.user.role,
+              token: data.token,
+            };
+          }
+          return null;
+        } catch (error: any) {
+          throw new Error(error.message || 'Authentication failed');
+        }
+      }
+    })
   ],
 
   callbacks: {
@@ -33,6 +76,8 @@ export const authOptions: NextAuthOptions = {
         return {
           ...token,
           id: user.id,
+          role: user.role,
+          accessToken: user.token,
         };
       }
       return token;
@@ -45,6 +90,8 @@ export const authOptions: NextAuthOptions = {
           user: {
             ...session.user,
             id: token?.id,
+            role: token?.role,
+            accessToken: token?.accessToken,
           },
         };
       }

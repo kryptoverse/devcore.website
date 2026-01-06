@@ -24,34 +24,34 @@ const Header = () => {
   }
 
   useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
+    window.addEventListener("scroll", handleScroll);
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+
+    // Run only once on initial mount
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+
+      const fetchData = async () => {
+        try {
+          const res = await fetch('/api/layout-data');
+          if (!res.ok) throw new Error('Failed to fetch');
+          const data = await res.json();
+          setMenuData(data?.headerData);
+        } catch (error) {
+          console.error('Error fetching services:', error);
         }
+      };
 
-        // Run only once on initial mount
-        if (!hasMounted.current) {
-            hasMounted.current = true;
+      fetchData();
+    }
 
-            const fetchData = async () => {
-                try {
-                    const res = await fetch('/api/layout-data');
-                    if (!res.ok) throw new Error('Failed to fetch');
-                    const data = await res.json();
-                    setMenuData(data?.headerData);
-                } catch (error) {
-                    console.error('Error fetching services:', error);
-                }
-            };
-
-            fetchData();
-        }
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [pathname]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname]);
 
   const handleSignOut = () => {
     localStorage.removeItem('user')
@@ -64,11 +64,10 @@ const Header = () => {
       <header className={`fixed top-0 z-50 w-full`}>
         <div className='container p-3'>
           <nav
-            className={`flex items-center py-3 px-4 justify-between ${
-              sticky
-                ? ' rounded-full shadow-sm bg-white dark:bg-dark_black'
-                : null
-            } `}>
+            className={`flex items-center py-3 px-4 justify-between ${sticky
+              ? ' rounded-full shadow-sm bg-white dark:bg-dark_black'
+              : null
+              } `}>
             <div className='flex items-center'>
               <Logo />
             </div>
@@ -82,7 +81,13 @@ const Header = () => {
             <div className='flex items-center gap-1 xl:gap-4'>
               {/* ---------------------SignUp SignIn Button-----------------  */}
               {user?.user || session?.user ? (
-                <div className='hidden lg:flex gap-4'>
+                <div className='hidden lg:flex gap-4 items-center'>
+                  <Link
+                    href="/chat"
+                    className='font-medium hover:text-primary transition-colors'
+                  >
+                    Chat
+                  </Link>
                   <button
                     onClick={() => handleSignOut()}
                     className='flex group font-normal items-center gap-1 transition-all duration-200 ease-in-out text-white px-4 py-2 bg-dark_black dark:bg-white/15 rounded-full hover:text-dark_black hover:bg-white dark:hover:bg-white/5 dark:hover:text-white border border-dark_black'>
@@ -151,9 +156,8 @@ const Header = () => {
           />
         )}
         <div
-          className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white dark:bg-dark_black shadow-lg transform transition-transform duration-300 max-w-xs ${
-            sidebarOpen ? 'translate-x-0' : 'translate-x-full'
-          } z-50`}>
+          className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white dark:bg-dark_black shadow-lg transform transition-transform duration-300 max-w-xs ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+            } z-50`}>
           <div className='flex items-center justify-between p-4'>
             <p className='text-lg font-bold'>Menu</p>
             <button
@@ -183,6 +187,13 @@ const Header = () => {
               <div className='flex flex-col items-center gap-3 px-2 mt-2'>
                 {user || session?.user ? (
                   <>
+                    <Link
+                      href="/chat"
+                      className='w-full text-center py-2 font-medium hover:text-primary transition-colors border border-base-300 rounded-md'
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      Chat
+                    </Link>
                     <button
                       onClick={() => signOut()}
                       className='flex w-full group font-normal items-center gap-2 transition-all duration-200 ease-in-out text-white dark:text-dark_black px-4 py-2 bg-dark_black rounded-md hover:text-dark_black hover:bg-white border border-dark_black'>

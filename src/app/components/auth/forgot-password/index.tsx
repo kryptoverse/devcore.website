@@ -31,10 +31,26 @@ const ForgotPassword = () => {
     if (!validateEmail(email)) return
 
     setLoader(true)
-    setTimeout(() => {
-      setLoader(false)
-      setIsEmailSent(true)
-    }, 2000)
+    try {
+      const res = await fetch("http://localhost:5000/api/v1/auth/forgot-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setEmailError(data.message || "Something went wrong");
+        return;
+      }
+
+      setIsEmailSent(true);
+    } catch (error) {
+      setEmailError("Something went wrong. Please try again.");
+    } finally {
+      setLoader(false);
+    }
   }
 
   return (
@@ -50,11 +66,11 @@ const ForgotPassword = () => {
 
                 {isEmailSent ? (
                   <div className='flex flex-col items-center gap-2'>
-                    <h4 className='text-dark_black font-bold'>
-                      Forgot Your Password?
+                    <h4 className='text-dark_black dark:text-white font-bold text-xl'>
+                      Check Your Email
                     </h4>
-                    <p className='text-dark_black opacity-60'>
-                      Please check your inbox for the new password.
+                    <p className='text-dark_black dark:text-white opacity-60 mt-2'>
+                      We have sent a password reset link to your email.
                     </p>
                   </div>
                 ) : (

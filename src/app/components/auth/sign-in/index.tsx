@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import SocialSignIn from '../SocialSignIn'
 import Loader from '../../shared/loader'
 import Logo from '../../layout/header/Logo'
 
@@ -45,6 +44,8 @@ const Signin = () => {
     return isValid
   }
 
+  const [showVerifyLink, setShowVerifyLink] = useState(false);
+
   // form handle submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,14 +53,29 @@ const Signin = () => {
       return
     }
     setLoading(true)
+    setShowVerifyLink(false); // Reset on new attempt
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      localStorage.setItem('user', JSON.stringify({ user: loginData.email }))
-      router.push('/')
-    } catch (error) {
-      toast.error('Something went wrong. Please try again.')
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: loginData.email,
+        password: loginData.password,
+      });
+
+      if (res?.error) {
+        toast.error(res.error || "Invalid details");
+        if (res.error.includes("verify")) {
+          setShowVerifyLink(true);
+          // Save email to local storage so verify page works
+          localStorage.setItem('user', JSON.stringify({ email: loginData.email }));
+        }
+      } else {
+        toast.success("Login Successful");
+        router.push("/");
+      }
+    } catch (error: any) {
+      toast.error("Something went wrong. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -74,15 +90,6 @@ const Signin = () => {
                   <Logo />
                 </div>
 
-                <SocialSignIn actionText='Sign In' />
-
-                <span className='z-1 relative my-8 block text-center'>
-                  <span className='-z-1 absolute left-0 top-1/2 block h-px w-full bg-dark_black/10 dark:bg-white/20'></span>
-                  <span className='text-sm text-dark_black/50 dark:text-white/40 relative z-10 inline-block bg-white dark:bg-dark_black px-3'>
-                    OR
-                  </span>
-                </span>
-
                 <form onSubmit={handleSubmit}>
                   <div className='mb-5 text-left'>
                     <input
@@ -92,11 +99,10 @@ const Signin = () => {
                         setLoginData({ ...loginData, email: e.target.value })
                       }
                       className={`w-full rounded-full border px-5 py-3 outline-hidden transition dark:border-white/20 dark:bg-black/40
-                                                ${
-                                                  validationErrors.email
-                                                    ? 'border-red-500'
-                                                    : 'border-stroke'
-                                                } 
+                                                ${validationErrors.email
+                          ? 'border-red-500'
+                          : 'border-stroke'
+                        } 
                                                 focus:border-dark_black/50 dark:focus:border-white/50 dark:focus:border-opacity-50`}
                     />
                     {validationErrors.email && (
@@ -113,11 +119,10 @@ const Signin = () => {
                         setLoginData({ ...loginData, password: e.target.value })
                       }
                       className={`w-full rounded-full border px-5 py-3 outline-hidden transition  dark:border-white/20 dark:bg-black/40 
-                                                ${
-                                                  validationErrors.email
-                                                    ? ' border-red-500'
-                                                    : 'border-stroke'
-                                                } 
+                                                ${validationErrors.email
+                          ? ' border-red-500'
+                          : 'border-stroke'
+                        } 
                                                 focus:border-dark_black/50 dark:focus:border-white/50`}
                     />
                     {validationErrors.password && (
@@ -140,6 +145,15 @@ const Signin = () => {
                   className='mb-2 inline-block text-dark_black/50 dark:text-white/50 dark:hover:text-white/70 hover:text-dark_black'>
                   Forget Password?
                 </Link>
+                {showVerifyLink && (
+                  <div className="mb-4 p-3 bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 rounded-lg text-sm">
+                    Please verify your email address.
+                    <Link href="/verify-email" className="font-bold underline ml-1 hover:text-yellow-900 dark:hover:text-yellow-100">
+                      Verify Now
+                    </Link>
+                  </div>
+                )}
+
                 <p className='text-dark_black/70 dark:text-white/50'>
                   Not a member yet?{' '}
                   <Link
