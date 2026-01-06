@@ -82,28 +82,51 @@ const innovationList = [
 
 const onlinePresenceList = [
   {
-    image: '/images/home/onlinePresence/online_img_1.jpg',
-    title: 'FlowBank',
-    tag: ['UX Research', 'Interface Design'],
-    link: 'https://www.wrappixel.com/',
+    image: '/images/home/onlinePresence/emmafabs.png',
+    title: 'EmmaFabs',
+    tag: ['Brand Identity Design', 'UX Research', 'Development'],
+    link: 'https://emmafab.netlify.app/',
   },
   {
-    image: '/images/home/onlinePresence/online_img_2.jpg',
-    title: 'Academy.co',
-    tag: ['Product Design', 'Interaction Design'],
-    link: 'https://www.wrappixel.com/',
+    image: '/images/home/onlinePresence/RapidRends.png',
+    title: 'Rapid Rends',
+    tag: ['Brand Identity Design', 'UX Research', 'Development'],
+    link: 'https://www.rapidrend.co.uk/',
   },
   {
-    image: '/images/home/onlinePresence/online_img_3.jpg',
-    title: 'Genome',
-    tag: ['Brand identity design', 'UX Research'],
-    link: 'https://www.wrappixel.com/',
+    image: '/images/home/onlinePresence/efggames.png',
+    title: 'EFG Games',
+    tag: ['Game Development', 'UI/UX Design', 'Web Development'],
+    link: 'https://www.efggames.com/',
   },
   {
-    image: '/images/home/onlinePresence/online_img_4.jpg',
-    title: 'Hotto',
-    tag: ['Visual Storytelling', 'Web & Mobile Design'],
-    link: 'https://www.wrappixel.com/',
+    image: '/images/home/onlinePresence/groupxam.png',
+    title: 'Groupxam',
+    tag: ['Web Development', 'Brand Strategy', 'UX Research'],
+    link: 'https://www.groupxam.com/',
+  },
+]
+
+const gameProjectsList = [
+  {
+    videoId: 'mEsRdIeIjuw',
+    title: 'Open World Environment Design',
+    tag: ['Game Development', '3D Design', 'Environment Art'],
+  },
+  {
+    videoId: 'F0Ce81IXXAY',
+    title: 'Intro Cinematic for Game',
+    tag: ['Cinematic Design', 'Animation', 'Storytelling'],
+  },
+  {
+    videoId: 'puE_kyVxs7c',
+    title: 'Black Strike',
+    tag: ['Game Development', 'Action Game', 'Multiplayer'],
+  },
+  {
+    videoId: 'LnfTxWwl5eE',
+    title: 'DOG Kannel',
+    tag: ['Game Development', 'Simulation', 'AI'],
   },
 ]
 
@@ -267,6 +290,7 @@ export const GET = async () => {
     brandList,
     innovationList,
     onlinePresenceList,
+    gameProjectsList,
     creativeMindList,
     WebResultTagList,
     startupPlanList,

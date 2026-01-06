@@ -7,6 +7,7 @@ import Faq from "./components/home/faq";
 import HeroSection from "./components/home/hero";
 import Innovation from "./components/home/innovation";
 import OnlinePresence from "./components/home/online-presence";
+import GameProjects from "./components/home/game-projects";
 import Solutions from "./components/home/solution";
 import Subscription from "./components/home/subscription";
 import WebResult from "./components/home/web-result";
@@ -38,6 +39,10 @@ export default function Home() {
       {/* ---------------------Online presence section Starts-----------------  */}
       <OnlinePresence />
       {/* ---------------------Online presence section Ends-----------------  */}
+
+      {/* ---------------------Game Projects section Starts-----------------  */}
+      <GameProjects />
+      {/* ---------------------Game Projects section Ends-----------------  */}
 
       {/* ---------------------Creative mind section Starts-----------------  */}
       <CreativeMind />

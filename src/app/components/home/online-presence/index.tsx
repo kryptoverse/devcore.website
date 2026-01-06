@@ -54,17 +54,18 @@ function OnlinePresence() {
                   className='group flex flex-col gap-6 cursor-pointer'
                   {...bottomAnimation(index)}
                 >
-                  <div className='relative'>
+                  <div className='relative overflow-hidden rounded-2xl aspect-[625/410]'>
                     <Image
                       src={items.image}
                       alt={items.title}
                       width={625}
                       height={410}
-                      className='rounded-2xl'
+                      className='rounded-2xl w-full h-full object-cover'
                     />
                     <Link
-                      href={'https://www.framer.com/@wrap-pixel/'}
-                      target='_blank'
+                      href={items.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className='absolute top-0 left-0 bg-black/50 w-full h-full rounded-2xl hidden group-hover:flex'
                     >
                       <span className='flex justify-end p-5 w-full'>
