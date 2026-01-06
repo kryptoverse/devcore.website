@@ -87,7 +87,7 @@ function WebResult() {
                   {inView ? <CountUp start={0} end={12} duration={3} /> : '0'}
                 </h2>
                 <p className='mt-2 text-dark_black/60 dark:text-white/60'>
-                  Design Awards
+                  Ongoing Projects
                 </p>
               </div>
             </div>

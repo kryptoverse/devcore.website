@@ -31,7 +31,7 @@ function GameProjects() {
 
     return (
         <section id='game-projects'>
-            <div ref={ref} className='2xl:py-20 py-11 bg-pale-yellow dark:bg-dark_black'>
+            <div ref={ref} className='2xl:py-20 py-11'>
                 <div className='container'>
                     <div className='flex flex-col justify-center items-center gap-10 md:gap-20'>
                         <div className='max-w-2xl text-center'>

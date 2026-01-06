@@ -23,7 +23,7 @@ const footerData = {
             {
                 icon: "/images/home/footerSocialIcon/linkedin.svg",
                 dark_icon: "/images/home/footerSocialIcon/linkedin_dark.svg",
-                link: "https://linkedin.com/in"
+                link: "https://www.linkedin.com/company/algodevcore/"
             },
             {
                 icon: "/images/home/footerSocialIcon/dribble.svg",
@@ -33,7 +33,7 @@ const footerData = {
             {
                 icon: "/images/home/footerSocialIcon/instagram.svg",
                 dark_icon: "/images/home/footerSocialIcon/instagram_dark.svg",
-                link: "https://instagram.com"
+                link: "https://www.instagram.com/algo.devcore?igsh=MWsxdWRxdTd3MTZ5Mw%3D%3D&utm_source=qr"
             }
         ]
     },
