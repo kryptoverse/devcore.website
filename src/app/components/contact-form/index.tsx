@@ -64,7 +64,7 @@ function ContactForm() {
           <div className='flex flex-col gap-10 md:gap-20'>
             <div className='relative flex flex-col text-center items-center'>
               <h2 className='font-medium w-full max-w-32'>
-                <TextGenerateEffect words="Love to hear from you, Get in" duration={0.5}  />
+                <TextGenerateEffect words="Love to hear from you, Get in" duration={0.5} />
                 <TextGenerateEffect
                   words="touch"
                   delay={1.5}
@@ -201,7 +201,7 @@ function ContactForm() {
                       type='submit'
                       className='group w-fit text-white dark:text-dark_black font-medium bg-dark_black dark:bg-white rounded-full flex items-center gap-4 py-2 pl-5 pr-2 transition-all duration-200 ease-in-out  hover:bg-transparent border hover:text-dark_black border-dark_black'>
                       <span className='transform transition-transform duration-200 ease-in-out group-hover:translate-x-10'>
-                        Let’s Collaborate
+                        Let's Chat
                       </span>
                       <svg
                         width='32'

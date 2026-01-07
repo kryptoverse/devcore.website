@@ -48,12 +48,12 @@ function CustomerStories() {
                   </span>
                   <div className="flex flex-col gap-6">
                     <h3 className="text-white">
-                      “DevCore’s expertise transformed my vision into success!”
+                      "DevCore delivered an exceptional blockchain solution that exceeded our expectations. Their expertise in Web3 development is truly remarkable!"
                     </h3>
                     <div className="flex flex-col gap-1">
-                      <p className="text-white font-medium">Kabir Shah</p>
+                      <p className="text-white font-medium">Marcus Chen</p>
                       <p className="text-white/60 text-sm font-medium">
-                        Founder of Chipsland
+                        CTO at TechVentures
                       </p>
                     </div>
                   </div>
@@ -95,7 +95,7 @@ function CustomerStories() {
                       Customer stories
                     </span>
                     <h3 className="text-white text-2xl">
-                      Their creativity and attention to detail transformed our brand completely!
+                      The smart contract development was flawless. DevCore's security-first approach gave us complete confidence in our DApp!
                     </h3>
                     <div>
                       <Image
@@ -122,13 +122,13 @@ function CustomerStories() {
                       Customer stories
                     </span>
                     <h2 className="text-2xl lg:text-5xl">
-                      “DevCore brought our ideas to life with exceptional creativity and precision, exceeding expectations.”
+                      "Working with DevCore was a game-changer. Their full-stack development skills and innovative approach turned our concept into a stunning reality."
                     </h2>
                   </div>
                   <div className="flex flex-col gap-1">
-                    <p className="font-medium">Kabir Shah</p>
+                    <p className="font-medium">Sarah Williams</p>
                     <p className="text-dark_black/60 dark:text-white/60 text-sm font-medium">
-                      Founder of Chipsland
+                      Product Manager at InnovateLabs
                     </p>
                   </div>
                 </motion.div>

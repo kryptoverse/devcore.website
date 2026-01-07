@@ -34,7 +34,7 @@ function Brand() {
             </div>
 
             {brandList && brandList.length > 0 && (
-              <div className='py-3 Xsm:py-7'>
+              <div className='py-3 Xsm:py-7 overflow-hidden'>
                 <Slider
                   width='200px'
                   duration={20}

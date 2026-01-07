@@ -95,6 +95,7 @@ layer(base);
   html {
     scroll-behavior: smooth;
     font-family: 'Inter Tight', sans-serif;
+    overflow-x: hidden;
     @apply dark:bg-dark_black;
   }
 

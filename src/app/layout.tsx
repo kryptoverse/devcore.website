@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body>
+      <body className="overflow-x-hidden">
         <Providers>
           <Header />
           {children}
