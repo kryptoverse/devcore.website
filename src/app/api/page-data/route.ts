@@ -153,33 +153,25 @@ const blockchainProjectsList = [
 
 const creativeMindList = [
   {
-    image: '/images/home/creative/creative_img_1.png',
-    name: 'Logan Dang',
-    position: 'WordPress Developer',
-    twitterLink: 'https://x.com/',
-    linkedinLink: 'https://in.linkedin.com/',
+    image: '/images/home/creative/creative_img_1.jpeg',
+    name: 'Ammad Waseem',
+    position: 'Backend Developer and Blockchain Developer',
   },
   {
-    image: '/images/home/creative/creative_img_2.png',
-    name: 'Ana Belić',
-    position: 'Social Media Specialist',
-    twitterLink: 'https://x.com/',
-    linkedinLink: 'https://in.linkedin.com/',
+    image: '/images/home/creative/creative_img_2.jpeg',
+    name: 'Rana Muhammad Areeb',
+    position: 'Frontend Developer and AI Automation Engineer',
   },
   {
     image: '/images/home/creative/creative_img_3.png',
-    name: 'Brian Hanley',
-    position: 'Product Designer',
-    twitterLink: 'https://x.com/',
-    linkedinLink: 'https://in.linkedin.com/',
+    name: 'Muhammad Hassnain',
+    position: 'Game Developer',
   },
   {
-    image: '/images/home/creative/creative_img_4.png',
-    name: 'Darko Stanković',
-    position: 'UI Designer',
-    twitterLink: 'https://x.com/',
-    linkedinLink: 'https://in.linkedin.com/',
-  },
+    image: '/images/home/creative/creative_img_4.jpeg',
+    name: 'Saad Waseem',
+    position: 'Game Developer',
+  }
 ]
 
 const WebResultTagList = [
