@@ -1,6 +1,3 @@
-import { Metadata } from "next";
-import Achievements from "./components/home/achievements";
-import Brand from "./components/home/brand";
 import CreativeMind from "./components/home/creative-mind";
 import CustomerStories from "./components/home/customer-stories";
 import Faq from "./components/home/faq";
@@ -13,10 +10,6 @@ import Solutions from "./components/home/solution";
 import Subscription from "./components/home/subscription";
 import WebResult from "./components/home/web-result";
 
-export const metadata: Metadata = {
-  title: "DevCore",
-};
-
 
 export default function Home() {
   return (
@@ -24,10 +17,6 @@ export default function Home() {
       {/* ---------------------Hero section Starts-----------------  */}
       <HeroSection />
       {/* ---------------------Hero section Ends-----------------  */}
-
-      {/* ---------------------Brand logo section Starts-----------------  */}
-      <Brand />
-      {/* ---------------------Brand logo section Ends-----------------  */}
 
       {/* ---------------------Web result section Starts-----------------  */}
       <WebResult />
@@ -64,10 +53,6 @@ export default function Home() {
       {/* ---------------------Faq section Starts-----------------  */}
       <Faq />
       {/* ---------------------Faq section Ends-----------------  */}
-
-      {/* ---------------------Achievements section Starts-----------------  */}
-      <Achievements />
-      {/* ---------------------Achievements section Ends-----------------  */}
 
       {/* ---------------------Solutions section Starts-----------------  */}
       <Solutions />

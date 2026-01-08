@@ -259,34 +259,34 @@ const startupPlanList = [
 
 const faqList = [
   {
-    faq_que: 'What services does Awake Agency offer?',
+    faq_que: 'What services does DevCore offer?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates or technical assistance.',
+      'DevCore specializes in UI/UX design, website development, blockchain development, game development, and AI automation. We create custom solutions tailored to your business needs, from simple landing pages to complex full-stack applications.',
   },
   {
     faq_que: 'How long does a typical project take?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates or technical assistance.',
+      'Project timelines vary based on complexity. A simple website typically takes 2-4 weeks, while full-stack applications with backend and authentication can take 6-12 weeks. We provide detailed timelines during the initial consultation.',
   },
   {
-    faq_que: 'How is pricing structured at Awake Agency?',
+    faq_que: 'How is pricing structured at DevCore?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates or technical assistance.',
+      'We offer three main tiers: Starter (for landing pages and company websites), Pro (full-featured web applications with backend), and Enterprise (complete business automation with AI). Each project is quoted based on specific requirements. Contact us for a custom quote.',
   },
   {
     faq_que: 'Do you offer ongoing support after project completion?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates or technical assistance.',
+      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates, technical assistance, or feature expansions.',
   },
   {
-    faq_que: 'How often will I receive updates on my project?',
+    faq_que: 'Can you help with both design and development?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates or technical assistance.',
+      'Absolutely! We handle the entire process from initial design concepts and UI/UX to frontend and backend development. Our team ensures seamless integration between design and functionality for a cohesive final product.',
   },
   {
-    faq_que: 'How often will I receive updates on my project?',
+    faq_que: 'Do you work with startups or only established businesses?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates or technical assistance.',
+      'We work with businesses of all sizes! Our Starter plan is perfect for new startups looking to establish their online presence, while our Pro and Enterprise plans cater to growing and established businesses with more complex needs.',
   },
 ]
 
