@@ -92,7 +92,7 @@ function BlockchainProjects() {
                                             {items.tag?.map((tag: any, idx: number) => (
                                                 <p
                                                     key={idx}
-                                                    className='text-sm border border-dark_black/10 dark:border-white/50 w-fit py-1.5 px-4 rounded-full hover:bg-dark_black hover:text-white dark:hover:bg-white dark:hover:text-dark_black transition-colors'
+                                                    className='text-xs border border-dark_black/30 dark:border-white/40 w-fit py-1 px-3 rounded-full hover:bg-dark_black hover:text-white dark:hover:bg-white dark:hover:text-dark_black hover:border-dark_black dark:hover:border-white transition-colors'
                                                 >
                                                     {tag}
                                                 </p>

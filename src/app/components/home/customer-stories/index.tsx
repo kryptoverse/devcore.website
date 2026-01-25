@@ -41,15 +41,15 @@ function CustomerStories() {
                   initial={{ x: -100, y: -100, opacity: 0 }}
                   animate={topLeftInView ? { x: 0, y: 0, opacity: 1 } : {}}
                   transition={{ duration: 0.8 }}
-                  className="p-8 gap-64 rounded-2xl flex flex-col relative bg-[url('/images/home/customerStories/customer_bg_img.jpg')] object-cover bg-center h-full w-full bg-cover bg-no-repeat"
+                  className="p-8 gap-12 md:gap-64 rounded-2xl flex flex-col relative bg-[url('/images/home/customerStories/customer_bg_img.jpg')] object-cover bg-center h-full w-full bg-cover bg-no-repeat"
                 >
                   <span className="text-white/60 uppercase text-sm font-medium">
                     Customer stories
                   </span>
                   <div className="flex flex-col gap-6">
-                    <h3 className="text-white">
+                    <h4 className="text-white text-2xl">
                       "DevCore delivered an exceptional blockchain solution that exceeded our expectations. Their expertise in Web3 development is truly remarkable!"
-                    </h3>
+                    </h4>
                     <div className="flex flex-col gap-1">
                       <p className="text-white font-medium">Marcus Chen</p>
                       <p className="text-white/60 text-sm font-medium">

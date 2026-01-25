@@ -61,7 +61,7 @@ function HeroSection() {
               <div className='flex flex-col items-center justify-center gap-8 w-full sm:flex-row'>
                 {/* ----------- Get started Link -------------- */}
                 <Link
-                  href='/contact'
+                  href='/chat'
                   className='group bg-purple_blue text-white font-medium flex flex-row justify-between items-center py-2 px-5 rounded-full max-w-64 w-full md:py-3 border border-purple_blue transition-all duration-200 ease-in-out hover:bg-transparent hover:text-purple_blue'>
                   <span className='flex text-start transform transition-transform duration-200 ease-in-out group-hover:translate-x-28'>
                     Get Started
@@ -96,23 +96,8 @@ function HeroSection() {
                   </svg>
                 </Link>
 
-                {/* --------------- avatar division -------------- */}
-                <div className='flex items-center gap-7'>
-                  <ul className='avatar flex flex-row items-center'>
-                    {avatarList?.avatarList?.map((items: any, index: any) => (
-                      <li key={index} className='-mr-2 z-1 avatar-hover:ml-2'>
-                        <Image
-                          src={items.image}
-                          alt='Image'
-                          width={44}
-                          height={44}
-                          quality={100}
-                          className='rounded-full border-2 border-white'
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                  {/* -------------- Star rating division --------------- */}
+                {/* --------------- Star rating and trust section -------------- */}
+                <div className='flex items-center gap-2'>
                   <div className='gap-1 flex flex-col'>
                     <div>
                       <StarRating count={4} color='#F59E0B' />

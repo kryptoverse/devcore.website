@@ -62,9 +62,9 @@ const Header = () => {
   return (
     <>
       <header className={`fixed top-0 z-50 w-full`}>
-        <div className='container p-3'>
+        <div className='container p-1 md:p-3'>
           <nav
-            className={`flex items-center py-3 px-4 justify-between ${sticky
+            className={`flex items-center py-1 md:py-3 px-2 md:px-4 justify-between ${sticky
               ? ' rounded-full shadow-sm bg-white dark:bg-dark_black'
               : null
               } `}>
@@ -156,7 +156,7 @@ const Header = () => {
           />
         )}
         <div
-          className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white dark:bg-dark_black shadow-lg transform transition-transform duration-300 max-w-xs ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`lg:hidden fixed top-0 right-0 h-full bg-white dark:bg-dark_black shadow-lg transform transition-transform duration-300 max-w-xs ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'
             } z-50`}>
           <div className='flex items-center justify-between p-4'>
             <p className='text-lg font-bold'>Menu</p>

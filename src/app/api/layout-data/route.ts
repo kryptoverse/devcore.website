@@ -6,7 +6,7 @@ const headerData = [
     { label: 'Work', href: '/#work' },
     { label: 'Team', href: '/#team' },
     { label: 'Pricing', href: '/#pricing' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Chat', href: '/chat' },
 ];
 
 const footerData = {
@@ -39,7 +39,7 @@ const footerData = {
     sitemap: {
         name: "Sitemap",
         links: [
-            { name: "Contact us", url: "/contact" },
+            { name: "Chat with us", url: "/chat" },
             { name: "About us", url: "/#aboutus" },
             { name: "Work", url: "/#work" },
             { name: "Services", url: "/#services" },
@@ -57,9 +57,9 @@ const footerData = {
     },
     contactDetails: {
         name: "Contact Details",
-        address: "81 Rivington Street London EC2A 3AY",
-        email: "hello@devcore.it",
-        phone: "0105 192 3556"
+        address: "Institute of Space and Technology Islamabad",
+        email: "algo.devcore@gmail.com",
+        phone: "+923704818015"
     },
     copyright: "©2025 DevCore. All Rights Reserved"
 };
