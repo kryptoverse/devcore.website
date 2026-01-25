@@ -15,9 +15,9 @@ const Sidebar = () => {
     }, [getUsers, session?.user?.accessToken]);
 
     // Filter users logic
-    // If I am Admin: Show all users
+    // If I am Admin (kryptochaingames@gmail.com): Show all users
     // If I am Customer: Show ONLY Admin
-    const isAdmin = session?.user?.role === "admin" || session?.user?.email === "kryptochaingames@gmail.com";
+    const isAdmin = session?.user?.email === "kryptochaingames@gmail.com";
 
     const filteredUsers = users.filter((user) => {
         const matchesSearch = user.Name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -30,7 +30,7 @@ const Sidebar = () => {
             return matchesSearch;
         } else {
             // Clients only see Admins
-            return matchesSearch && (user.Role === "admin" || user.Email === "kryptochaingames@gmail.com");
+            return matchesSearch && (user.Email === "kryptochaingames@gmail.com" || user.Role === "admin");
         }
     });
 

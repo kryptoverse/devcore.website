@@ -156,7 +156,7 @@ const Header = () => {
           />
         )}
         <div
-          className={`lg:hidden fixed top-0 right-0 h-full bg-white dark:bg-dark_black shadow-lg transform transition-transform duration-300 max-w-xs ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`lg:hidden fixed top-0 right-0 h-full bg-white dark:bg-dark_black shadow-lg transform transition-transform duration-300 w-80 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'
             } z-50`}>
           <div className='flex items-center justify-between p-4'>
             <p className='text-lg font-bold'>Menu</p>
@@ -182,7 +182,7 @@ const Header = () => {
           <div className='p-4'>
             <ul className='flex flex-col'>
               {menuData && menuData?.map((item, index) => (
-                <MobileHeader key={index} item={item} />
+                <MobileHeader key={index} item={item} onClick={() => setSidebarOpen(false)} />
               ))}
               <div className='flex flex-col items-center gap-3 px-2 mt-2'>
                 {user || session?.user ? (
@@ -195,7 +195,10 @@ const Header = () => {
                       Chat
                     </Link>
                     <button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        signOut();
+                        setSidebarOpen(false);
+                      }}
                       className='flex w-full group font-normal items-center gap-2 transition-all duration-200 ease-in-out text-white dark:text-dark_black px-4 py-2 bg-dark_black rounded-md hover:text-dark_black hover:bg-white border border-dark_black'>
                       Sign Out
                       <Icon
@@ -222,11 +225,13 @@ const Header = () => {
                   <>
                     <Link
                       href={'/signin'}
+                      onClick={() => setSidebarOpen(false)}
                       className='w-full border border-dark_black dark:border-white text-primary px-4 py-2 rounded-md hover:bg-dark_black dark:hover:bg-white hover:text-white dark:hover:text-dark_black'>
                       Sign In
                     </Link>
                     <Link
                       href={'/signup'}
+                      onClick={() => setSidebarOpen(false)}
                       className='w-full text-white dark:text-dark_black px-4 py-2 bg-dark_black dark:bg-white rounded-md hover:opacity-90'>
                       Sign Up
                     </Link>
