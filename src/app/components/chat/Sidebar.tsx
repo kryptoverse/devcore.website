@@ -14,10 +14,25 @@ const Sidebar = () => {
         if (session?.user?.accessToken) getUsers(session.user.accessToken);
     }, [getUsers, session?.user?.accessToken]);
 
-    // Filter users based on search term (client-side for now)
-    const filteredUsers = users.filter((user) =>
-        user.Name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    // Filter users logic
+    // If I am Admin: Show all users
+    // If I am Customer: Show ONLY Admin
+    const isAdmin = session?.user?.role === "admin" || session?.user?.email === "kryptochaingames@gmail.com";
+
+    const filteredUsers = users.filter((user) => {
+        const matchesSearch = user.Name.toLowerCase().includes(searchTerm.toLowerCase());
+        const isSelf = user._id === session?.user?.id;
+
+        if (isSelf) return false;
+
+        if (isAdmin) {
+            // Admin sees everyone
+            return matchesSearch;
+        } else {
+            // Clients only see Admins
+            return matchesSearch && (user.Role === "admin" || user.Email === "kryptochaingames@gmail.com");
+        }
+    });
 
     if (isUsersLoading) return <SidebarSkeleton />;
 
