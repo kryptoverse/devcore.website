@@ -41,6 +41,7 @@ const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 
         // Handler: New Message Notification
         const handleNewMessageNotification = (newMessage: any) => {
+            // Suppress if user is on the dedicated chat page (toast is redundant)
             if (pathname === "/chat") return;
 
             // Loose comparison in case of string vs object mismatch

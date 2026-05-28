@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import ScrollToTop from '../app/components/scroll-to-top'
 import { Toaster } from 'react-hot-toast'
 import SocketProvider from './SocketProvider'
+import ChatPopup from '../app/components/chat/ChatPopup'
 
 export default function Providers({ children }: { children: React.ReactNode }) {
     return (
@@ -13,6 +14,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
                 <SocketProvider>
                     {children}
                     <ScrollToTop />
+                    <ChatPopup />
                     <Toaster />
                 </SocketProvider>
             </ThemeProvider>
