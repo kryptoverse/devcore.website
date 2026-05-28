@@ -44,11 +44,21 @@ const MessagesSkeleton = () => (
 );
 
 /* ─────────────────────────────────────────────────────────
-   Main ChatPopup component
+   Route guard wrapper — NO hooks here so React rules are safe
+   Returns null on /chat (dedicated page), renders inner otherwise
 ───────────────────────────────────────────────────────── */
 export default function ChatPopup() {
-    const { data: session, status } = useSession();
     const pathname = usePathname();
+    if (pathname === "/chat") return null;
+    return <ChatPopupInner />;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Inner component — all hooks live here
+───────────────────────────────────────────────────────── */
+function ChatPopupInner() {
+
+    const { data: session, status } = useSession();
 
     const {
         users,
@@ -74,9 +84,6 @@ export default function ChatPopup() {
     // Tracks whether we've already auto-selected the admin once — prevents
     // the effect re-firing after setSelectedUser updates the store (React #300).
     const autoSelectedRef = useRef(false);
-
-    // Don't show on the dedicated /chat page — no need for duplicate
-    if (pathname === "/chat") return null;
 
     const isAuthenticated = status === "authenticated";
     // Use role from JWT session (set in auth.ts jwt callback) — more reliable than email comparison

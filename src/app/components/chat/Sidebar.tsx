@@ -14,25 +14,13 @@ const Sidebar = () => {
         if (session?.user?.accessToken) getUsers(session.user.accessToken);
     }, [getUsers, session?.user?.accessToken]);
 
-    // Filter users logic
-    // If I am Admin (kryptochaingames@gmail.com): Show all users
-    // If I am Customer: Show ONLY Admin
-    const isAdmin = session?.user?.email === "kryptochaingames@gmail.com";
+    // Backend already returns the correct set per role:
+    //   customers → only admins | admins → all users (excluding self)
+    // We only apply the search filter client-side on top of that.
+    const filteredUsers = users.filter((user) =>
+        user.Name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-    const filteredUsers = users.filter((user) => {
-        const matchesSearch = user.Name.toLowerCase().includes(searchTerm.toLowerCase());
-        const isSelf = user._id === session?.user?.id;
-
-        if (isSelf) return false;
-
-        if (isAdmin) {
-            // Admin sees everyone
-            return matchesSearch;
-        } else {
-            // Clients only see Admins
-            return matchesSearch && (user.Email === "kryptochaingames@gmail.com" || user.Role === "admin");
-        }
-    });
 
     if (isUsersLoading) return <SidebarSkeleton />;
 
