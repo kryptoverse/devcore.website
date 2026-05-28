@@ -78,14 +78,11 @@ export default function ChatPopup() {
     const isAuthenticated = status === "authenticated";
     const isAdmin = session?.user?.email === "kryptochaingames@gmail.com";
 
-    // Filtered users (same logic as Sidebar)
-    const filteredUsers = users.filter((user) => {
-        const matchesSearch = user.Name.toLowerCase().includes(searchTerm.toLowerCase());
-        const isSelf = user._id === session?.user?.id;
-        if (isSelf) return false;
-        if (isAdmin) return matchesSearch;
-        return matchesSearch && (user.Email === "kryptochaingames@gmail.com" || user.Role === "admin");
-    });
+    // Backend already filters: customers only get admins, admins get everyone.
+    // Apply client-side search on top of that.
+    const filteredUsers = users.filter((user) =>
+        user.Name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     // Fetch users when popup opens and user is authenticated
     useEffect(() => {
@@ -93,6 +90,16 @@ export default function ChatPopup() {
             getUsers(session.user.accessToken);
         }
     }, [isOpen, isAuthenticated, session?.user?.accessToken, getUsers]);
+
+    // Auto-select admin for regular users as soon as users load
+    useEffect(() => {
+        if (!isAdmin && !selectedUser && users.length > 0) {
+            // Backend guarantees the list contains only admins for customers.
+            // Pick the first admin automatically so chat opens right away.
+            const admin = users.find((u) => u.Role === "admin") ?? users[0];
+            if (admin) setSelectedUser(admin);
+        }
+    }, [users, isAdmin, selectedUser, setSelectedUser]);
 
     // Fetch messages when a user is selected
     useEffect(() => {
@@ -278,7 +285,9 @@ export default function ChatPopup() {
                                     </div>
                                     <div className="flex-1">
                                         <p className="font-semibold text-sm text-dark_black dark:text-white leading-tight">Chat with Developer</p>
-                                        <p className="text-xs text-gray-500">Select a contact to start</p>
+                                        <p className="text-xs text-gray-500">
+                                            {isAdmin ? "Select a contact to start" : "Connecting to developer…"}
+                                        </p>
                                     </div>
                                 </>
                             )}
@@ -291,71 +300,82 @@ export default function ChatPopup() {
                             </button>
                         </div>
 
-                        {/* Body — Contacts list */}
+                        {/* Body — Contacts list (only for admins, regular users auto-jump to chat) */}
                         {!selectedUser && (
                             <div className="flex flex-col flex-1 overflow-hidden">
-                                {/* Search */}
-                                <div className="px-4 py-2 border-b border-gray-100 dark:border-white/10 shrink-0">
-                                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-white/5 rounded-lg px-3 py-2">
-                                        <Search size={14} className="text-gray-400 shrink-0" />
-                                        <input
-                                            type="text"
-                                            placeholder="Search..."
-                                            className="bg-transparent text-sm outline-none w-full text-dark_black dark:text-white placeholder-gray-400"
-                                            value={searchTerm}
-                                            onChange={(e) => setSearchTerm(e.target.value)}
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Users */}
-                                <div className="flex-1 overflow-y-auto">
-                                    {isUsersLoading ? (
-                                        <UsersSkeleton />
-                                    ) : filteredUsers.length === 0 ? (
-                                        <div className="flex flex-col items-center justify-center h-full text-center p-6 gap-3">
-                                            <Users size={36} className="text-gray-300 dark:text-gray-600" />
-                                            <p className="text-sm text-gray-500 dark:text-gray-400">No contacts available</p>
+                                {isAdmin ? (
+                                    // Admin sees full searchable contacts list
+                                    <>
+                                        {/* Search */}
+                                        <div className="px-4 py-2 border-b border-gray-100 dark:border-white/10 shrink-0">
+                                            <div className="flex items-center gap-2 bg-gray-50 dark:bg-white/5 rounded-lg px-3 py-2">
+                                                <Search size={14} className="text-gray-400 shrink-0" />
+                                                <input
+                                                    type="text"
+                                                    placeholder="Search..."
+                                                    className="bg-transparent text-sm outline-none w-full text-dark_black dark:text-white placeholder-gray-400"
+                                                    value={searchTerm}
+                                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                                />
+                                            </div>
                                         </div>
-                                    ) : (
-                                        <ul className="py-2">
-                                            {filteredUsers.map((user) => (
-                                                <li key={user._id}>
-                                                    <button
-                                                        onClick={() => setSelectedUser(user)}
-                                                        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left"
-                                                    >
-                                                        <div className="relative shrink-0">
-                                                            <div className="w-10 h-10 rounded-full bg-purple_blue/10 flex items-center justify-center overflow-hidden">
-                                                                {user.avatar ? (
-                                                                    <img src={user.avatar} alt={user.Name} className="object-cover w-full h-full" />
-                                                                ) : (
-                                                                    <span className="text-base font-bold text-purple_blue">
-                                                                        {user.Name.charAt(0).toUpperCase()}
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                            {onlineUsers.includes(user._id) && (
-                                                                <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-dark_black" />
-                                                            )}
-                                                        </div>
-                                                        <div className="min-w-0 flex-1">
-                                                            <p className="text-sm font-medium text-dark_black dark:text-white truncate">{user.Name}</p>
-                                                            <p className="text-xs text-gray-500">
-                                                                {onlineUsers.includes(user._id) ? (
-                                                                    <span className="text-green-500">Online</span>
-                                                                ) : (
-                                                                    "Offline"
-                                                                )}
-                                                            </p>
-                                                        </div>
-                                                        <ChevronLeft size={14} className="text-gray-400 rotate-180 shrink-0" />
-                                                    </button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </div>
+
+                                        {/* Users */}
+                                        <div className="flex-1 overflow-y-auto">
+                                            {isUsersLoading ? (
+                                                <UsersSkeleton />
+                                            ) : filteredUsers.length === 0 ? (
+                                                <div className="flex flex-col items-center justify-center h-full text-center p-6 gap-3">
+                                                    <Users size={36} className="text-gray-300 dark:text-gray-600" />
+                                                    <p className="text-sm text-gray-500 dark:text-gray-400">No contacts found</p>
+                                                </div>
+                                            ) : (
+                                                <ul className="py-2">
+                                                    {filteredUsers.map((user) => (
+                                                        <li key={user._id}>
+                                                            <button
+                                                                onClick={() => setSelectedUser(user)}
+                                                                className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left"
+                                                            >
+                                                                <div className="relative shrink-0">
+                                                                    <div className="w-10 h-10 rounded-full bg-purple_blue/10 flex items-center justify-center overflow-hidden">
+                                                                        {user.avatar ? (
+                                                                            <img src={user.avatar} alt={user.Name} className="object-cover w-full h-full" />
+                                                                        ) : (
+                                                                            <span className="text-base font-bold text-purple_blue">
+                                                                                {user.Name.charAt(0).toUpperCase()}
+                                                                            </span>
+                                                                        )}
+                                                                    </div>
+                                                                    {onlineUsers.includes(user._id) && (
+                                                                        <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 ring-2 ring-white dark:ring-dark_black" />
+                                                                    )}
+                                                                </div>
+                                                                <div className="min-w-0 flex-1">
+                                                                    <p className="text-sm font-medium text-dark_black dark:text-white truncate">{user.Name}</p>
+                                                                    <p className="text-xs text-gray-500">
+                                                                        {onlineUsers.includes(user._id) ? (
+                                                                            <span className="text-green-500">Online</span>
+                                                                        ) : (
+                                                                            "Offline"
+                                                                        )}
+                                                                    </p>
+                                                                </div>
+                                                                <ChevronLeft size={14} className="text-gray-400 rotate-180 shrink-0" />
+                                                            </button>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    </>
+                                ) : (
+                                    // Regular user: auto-connecting, show spinner
+                                    <div className="flex flex-col flex-1 items-center justify-center gap-3 p-6 text-center">
+                                        <div className="w-8 h-8 border-2 border-purple_blue border-t-transparent rounded-full animate-spin" />
+                                        <p className="text-sm text-gray-500 dark:text-gray-400">Connecting to developer…</p>
+                                    </div>
+                                )}
                             </div>
                         )}
 
