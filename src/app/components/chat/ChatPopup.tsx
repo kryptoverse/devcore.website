@@ -71,12 +71,16 @@ export default function ChatPopup() {
     const [unread, setUnread] = useState(false);
     const messageEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    // Tracks whether we've already auto-selected the admin once — prevents
+    // the effect re-firing after setSelectedUser updates the store (React #300).
+    const autoSelectedRef = useRef(false);
 
     // Don't show on the dedicated /chat page — no need for duplicate
     if (pathname === "/chat") return null;
 
     const isAuthenticated = status === "authenticated";
-    const isAdmin = session?.user?.email === "kryptochaingames@gmail.com";
+    // Use role from JWT session (set in auth.ts jwt callback) — more reliable than email comparison
+    const isAdmin = session?.user?.role === "admin";
 
     // Backend already filters: customers only get admins, admins get everyone.
     // Apply client-side search on top of that.
@@ -91,15 +95,22 @@ export default function ChatPopup() {
         }
     }, [isOpen, isAuthenticated, session?.user?.accessToken, getUsers]);
 
-    // Auto-select admin for regular users as soon as users load
+    // Auto-select admin for regular users as soon as users load.
+    // Uses a ref guard instead of selectedUser in deps to avoid triggering
+    // a re-render loop (React error #300) after setSelectedUser updates the store.
     useEffect(() => {
-        if (!isAdmin && !selectedUser && users.length > 0) {
-            // Backend guarantees the list contains only admins for customers.
-            // Pick the first admin automatically so chat opens right away.
-            const admin = users.find((u) => u.Role === "admin") ?? users[0];
-            if (admin) setSelectedUser(admin);
+        if (isAdmin || autoSelectedRef.current || users.length === 0) return;
+        const admin = users.find((u) => u.Role === "admin") ?? users[0];
+        if (admin) {
+            autoSelectedRef.current = true;
+            setSelectedUser(admin);
         }
-    }, [users, isAdmin, selectedUser, setSelectedUser]);
+    }, [users, isAdmin, setSelectedUser]);
+
+    // Reset auto-select guard when session changes (logout/login)
+    useEffect(() => {
+        autoSelectedRef.current = false;
+    }, [session?.user?.id]);
 
     // Fetch messages when a user is selected
     useEffect(() => {
