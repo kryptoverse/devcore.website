@@ -75,13 +75,13 @@ const ChatWindow = () => {
                     return (
                         <div
                             key={message._id}
-                            className={`chat flex ${isMyMessage ? "justify-end" : "justify-start"} group`}
+                            className={`flex ${isMyMessage ? "justify-end" : "justify-start"} group mb-4`}
                         >
                             <div className={`flex items-end gap-2 max-w-[85%] ${isMyMessage ? "flex-row-reverse" : "flex-row"}`}>
                                 <div className={`
                                      rounded-2xl px-4 py-2.5 text-[15px] shadow-sm
                                      ${isMyMessage
-                                        ? "bg-blue-600 text-white rounded-br-[4px]"
+                                        ? "bg-purple_blue text-white rounded-br-[4px]"
                                         : "bg-base-200 dark:bg-gray-800 text-base-content rounded-bl-[4px] border border-base-300"}
                                 `}>
                                     {/* Image logic future */}

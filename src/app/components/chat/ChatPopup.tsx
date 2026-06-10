@@ -424,7 +424,7 @@ function ChatPopupInner() {
                                         messages.map((msg) => {
                                             const isMine = msg.SenderId === session?.user?.id;
                                             return (
-                                                <div key={msg._id} className={`flex ${isMine ? "justify-end" : "justify-start"} group`}>
+                                                <div key={msg._id} className={`flex ${isMine ? "justify-end" : "justify-start"} group mb-4`}>
                                                     <div className={`flex items-end gap-2 max-w-[85%] ${isMine ? "flex-row-reverse" : "flex-row"}`}>
                                                         <div
                                                             className={`
