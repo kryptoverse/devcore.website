@@ -10,7 +10,7 @@ import ChatPopup from '../app/components/chat/ChatPopup'
 export default function Providers({ children }: { children: React.ReactNode }) {
     return (
         <SessionProvider>
-            <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
+            <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
                 <SocketProvider>
                     {children}
                     <ScrollToTop />
