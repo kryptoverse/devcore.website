@@ -75,19 +75,21 @@ const ChatWindow = () => {
                     return (
                         <div
                             key={message._id}
-                            className={`chat flex ${isMyMessage ? "justify-end" : "justify-start"}`}
+                            className={`flex ${isMyMessage ? "justify-end" : "justify-start"} group mb-4`}
                         >
-                            <div className={`
-                             max-w-[70%] rounded-2xl p-3 shadow-sm
-                             ${isMyMessage
-                                    ? "bg-blue-600 text-white rounded-br-none"
-                                    : "bg-base-200 dark:bg-gray-800 text-base-content rounded-bl-none border border-base-300"}
-                        `}>
-                                {/* Image logic future */}
-                                <p>{message.Message}</p>
-                                <div className={`text-xs mt-1 opacity-70 ${isMyMessage ? "text-blue-100" : "text-gray-500"}`}>
-                                    {format(new Date(message.createdAt), "HH:mm")}
+                            <div className={`flex items-end gap-2 max-w-[85%] ${isMyMessage ? "flex-row-reverse" : "flex-row"}`}>
+                                <div className={`
+                                     rounded-2xl px-4 py-2.5 text-[15px] shadow-sm
+                                     ${isMyMessage
+                                        ? "bg-purple_blue text-white rounded-br-[4px]"
+                                        : "bg-base-200 dark:bg-gray-800 text-base-content rounded-bl-[4px] border border-base-300"}
+                                `}>
+                                    {/* Image logic future */}
+                                    <p className="leading-relaxed break-words whitespace-pre-wrap">{message.Message}</p>
                                 </div>
+                                <span className={`text-[11px] text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap px-1 pb-1 ${isMyMessage ? "text-right" : "text-left"}`}>
+                                    {format(new Date(message.createdAt), "HH:mm")}
+                                </span>
                             </div>
                         </div>
                     );

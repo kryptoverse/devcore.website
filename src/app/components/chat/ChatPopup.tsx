@@ -237,8 +237,8 @@ function ChatPopupInner() {
                     inset-0 sm:inset-auto
                     /* desktop: floating bottom-right */
                     sm:bottom-[9.5rem] sm:right-6
-                    sm:w-[380px] sm:max-w-[calc(100vw-3rem)]
-                    sm:h-[520px] sm:max-h-[calc(100vh-12rem)]
+                    sm:w-[420px] sm:max-w-[calc(100vw-3rem)]
+                    sm:h-[600px] sm:max-h-[calc(100vh-12rem)]
                     /* panel styles */
                     bg-white dark:bg-dark_black
                     border border-gray-200 dark:border-white/10
@@ -273,13 +273,15 @@ function ChatPopupInner() {
                         <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-white/10 bg-white dark:bg-dark_black shrink-0">
                             {selectedUser ? (
                                 <>
-                                    <button
-                                        onClick={() => setSelectedUser(null)}
-                                        className="text-gray-500 hover:text-gray-800 dark:hover:text-white transition-colors"
-                                        aria-label="Back to contacts"
-                                    >
-                                        <ChevronLeft size={20} />
-                                    </button>
+                                    {isAdmin && (
+                                        <button
+                                            onClick={() => setSelectedUser(null)}
+                                            className="text-gray-500 hover:text-gray-800 dark:hover:text-white transition-colors"
+                                            aria-label="Back to contacts"
+                                        >
+                                            <ChevronLeft size={20} />
+                                        </button>
+                                    )}
                                     <div className="w-8 h-8 rounded-full bg-purple_blue/20 flex items-center justify-center text-purple_blue font-bold text-sm shrink-0">
                                         {selectedUser.Name.charAt(0).toUpperCase()}
                                     </div>
@@ -422,20 +424,22 @@ function ChatPopupInner() {
                                         messages.map((msg) => {
                                             const isMine = msg.SenderId === session?.user?.id;
                                             return (
-                                                <div key={msg._id} className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
-                                                    <div
-                                                        className={`
-                                                            max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow-sm
-                                                            ${isMine
-                                                                ? "bg-purple_blue text-white rounded-br-none"
-                                                                : "bg-gray-100 dark:bg-white/10 text-dark_black dark:text-white rounded-bl-none"
-                                                            }
-                                                        `}
-                                                    >
-                                                        <p className="leading-relaxed break-words">{msg.Message}</p>
-                                                        <p className={`text-[10px] mt-1 opacity-60 text-right ${isMine ? "text-white" : "text-gray-500"}`}>
+                                                <div key={msg._id} className={`flex ${isMine ? "justify-end" : "justify-start"} group mb-4`}>
+                                                    <div className={`flex items-end gap-2 max-w-[85%] ${isMine ? "flex-row-reverse" : "flex-row"}`}>
+                                                        <div
+                                                            className={`
+                                                                rounded-2xl px-4 py-2.5 text-[15px] shadow-sm
+                                                                ${isMine
+                                                                    ? "bg-purple_blue text-white rounded-br-[4px]"
+                                                                    : "bg-gray-100 dark:bg-white/10 text-dark_black dark:text-white rounded-bl-[4px]"
+                                                                }
+                                                            `}
+                                                        >
+                                                            <p className="leading-relaxed break-words whitespace-pre-wrap">{msg.Message}</p>
+                                                        </div>
+                                                        <span className={`text-[11px] text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap px-1 pb-1 ${isMine ? "text-right" : "text-left"}`}>
                                                             {format(new Date(msg.createdAt), "HH:mm")}
-                                                        </p>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             );
