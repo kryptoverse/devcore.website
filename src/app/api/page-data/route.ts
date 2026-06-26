@@ -50,13 +50,13 @@ const brandList = [
 const innovationList = [
   {
     image: '/images/home/innovation/uiux.svg',
-    title: 'UI/UX\nDesign',
+    title: 'Backend\nDevelopment',
     bg_color: 'bg-orange/20',
     txt_color: 'text-orange',
   },
   {
     image: '/images/home/innovation/analitics.svg',
-    title: 'Blockchain\nDevelopment',
+    title: 'Blockchain\n& Web3',
     bg_color: 'bg-blue/20',
     txt_color: 'text-blue',
   },
@@ -68,7 +68,7 @@ const innovationList = [
   },
   {
     image: '/images/home/innovation/webdevp.svg',
-    title: 'Website\nDevelopment',
+    title: 'Full-Stack\nWeb Apps',
     bg_color: 'bg-pink/20',
     txt_color: 'text-pink',
   },
@@ -105,6 +105,12 @@ const onlinePresenceList = [
     tag: ['Web Development', 'Brand Strategy', 'UX Research'],
     link: 'https://www.groupxam.com/',
   },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://gungearonline.games/',
+    title: 'Gun Gear Online (GGO)',
+    tag: ['Game Showcase', 'Multiplayer Shooter', 'Web'],
+    link: 'https://gungearonline.games/',
+  },
 ]
 
 const gameProjectsList = [
@@ -128,6 +134,26 @@ const gameProjectsList = [
     title: 'DOG Kannel',
     tag: ['Game Development', 'Simulation', 'AI'],
   },
+  {
+    videoId: 'COfkm-SIVgA',
+    title: 'NGMI Multiplayer Shooter',
+    tag: ['UE5', 'Networking', 'Combat Systems'],
+  },
+  {
+    videoId: '350QdtRabHs',
+    title: 'RPG Game System',
+    tag: ['UE5', 'Gameplay Systems', 'NPC AI'],
+  },
+  {
+    videoId: 'xgeZlc3oCME',
+    title: 'Space Shooter',
+    tag: ['UE5', 'Physics-based Movement', 'Arcade'],
+  },
+  {
+    videoId: 'd_1-nRy0ahI',
+    title: 'Cinematic Character Creation',
+    tag: ['UE5', 'MetaHuman', 'Character Pipeline'],
+  },
 ]
 
 const blockchainProjectsList = [
@@ -148,6 +174,63 @@ const blockchainProjectsList = [
     title: 'Secure Solidity Smart Contracts',
     tag: ['Smart Contracts', 'Security', 'Solidity'],
     link: '',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://pvp-fun-market-maker.vercel.app/',
+    title: 'PVP.Fun Market Maker',
+    tag: ['AMM', 'Bonding Curves', 'Solidity'],
+    link: 'https://pvp-fun-market-maker.vercel.app/',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://crowdfunding-dapp-two.vercel.app/',
+    title: 'Crowdfunding DApp',
+    tag: ['Ethereum', 'Solidity', 'DApp'],
+    link: 'https://crowdfunding-dapp-two.vercel.app/',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://nft-battle-arena-frontend.vercel.app/',
+    title: 'NFT Battle Arena',
+    tag: ['NFT Gaming', 'Chainlink VRF', 'Staking & Marketplace'],
+    link: 'https://nft-battle-arena-frontend.vercel.app/',
+  },
+]
+
+const fullStackProjectsList = [
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://thinkwell-frontend-testing.vercel.app/',
+    title: 'ThinkWell CRM Platform',
+    tag: ['Full-Stack', 'CRM', 'Business Management'],
+    link: 'https://thinkwell-frontend-testing.vercel.app/',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://www.devcore.website/',
+    title: 'DevCore Website + Real-Time Chat',
+    tag: ['Node.js', 'Socket.io', 'MongoDB'],
+    link: 'https://www.devcore.website/',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://cccmiraclecathedral.org',
+    title: 'Cathedral Church Website',
+    tag: ['Full-Stack', 'CMS', 'Community'],
+    link: 'https://cccmiraclecathedral.org',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://github.com/kryptoverse/AuthCompanyServer',
+    title: 'Authentication System & Onboarding',
+    tag: ['Node.js', 'JWT', 'RBAC'],
+    link: 'https://github.com/kryptoverse/AuthCompanyServer',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://github.com/kryptoverse/StramifyBackend',
+    title: 'Stramify Backend',
+    tag: ['WebSockets', 'Streaming', 'Node.js'],
+    link: 'https://github.com/kryptoverse/StramifyBackend',
+  },
+  {
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://github.com/kryptoverse/DevCoreBackend',
+    title: 'DevCore Backend APIs',
+    tag: ['Express.js', 'MongoDB', 'REST APIs'],
+    link: 'https://github.com/kryptoverse/DevCoreBackend',
   },
 ]
 
@@ -259,34 +342,34 @@ const startupPlanList = [
 
 const faqList = [
   {
-    faq_que: 'What services does DevCore offer?',
+    faq_que: 'What do you do?',
     faq_ans:
-      'DevCore specializes in UI/UX design, website development, blockchain development, game development, and AI automation. We create custom solutions tailored to your business needs, from simple landing pages to complex full-stack applications.',
+      "I'm Ammad Waseem, a backend, blockchain, and game developer. I build production REST APIs (Node.js, Express, MongoDB), secure Solidity smart contracts and Web3 dApps, full-stack web applications, and immersive 3D games in Unreal Engine 5.",
+  },
+  {
+    faq_que: 'Are you available for freelance work or hire?',
+    faq_ans:
+      "Yes. I've delivered projects for 20+ clients as a freelancer and currently work as a backend engineer. I'm open to freelance contracts, long-term collaborations, and full-time roles. Just reach out and tell me about your project.",
+  },
+  {
+    faq_que: 'Which technologies do you work with?',
+    faq_ans:
+      'Backend: Node.js, Express, MongoDB, MySQL, PostgreSQL, Redis, Socket.io and Stripe. Blockchain: Solidity, Hardhat, Foundry, Ethereum, Polygon, Base, account abstraction and ERC20/721/1155. Frontend: Next.js, React and Tailwind CSS. Games: Unreal Engine 5 and Blueprints.',
   },
   {
     faq_que: 'How long does a typical project take?',
     faq_ans:
-      'Project timelines vary based on complexity. A simple website typically takes 2-4 weeks, while full-stack applications with backend and authentication can take 6-12 weeks. We provide detailed timelines during the initial consultation.',
+      'It depends on scope. A focused API or smart contract can take 1-3 weeks, while a full-stack application with auth and real-time features usually takes 4-10 weeks. I share a clear timeline before we start.',
   },
   {
-    faq_que: 'How is pricing structured at DevCore?',
+    faq_que: 'Do you offer support after a project is delivered?',
     faq_ans:
-      'We offer three main tiers: Starter (for landing pages and company websites), Pro (full-featured web applications with backend), and Enterprise (complete business automation with AI). Each project is quoted based on specific requirements. Contact us for a custom quote.',
+      'Yes. I provide post-launch support to make sure everything runs smoothly and can take on ongoing maintenance, fixes, and feature additions whenever you need them.',
   },
   {
-    faq_que: 'Do you offer ongoing support after project completion?',
+    faq_que: 'How can I get in touch?',
     faq_ans:
-      'Yes, we provide post-launch support to ensure smooth implementation and offer ongoing maintenance packages for clients needing regular updates, technical assistance, or feature expansions.',
-  },
-  {
-    faq_que: 'Can you help with both design and development?',
-    faq_ans:
-      'Absolutely! We handle the entire process from initial design concepts and UI/UX to frontend and backend development. Our team ensures seamless integration between design and functionality for a cohesive final product.',
-  },
-  {
-    faq_que: 'Do you work with startups or only established businesses?',
-    faq_ans:
-      'We work with businesses of all sizes! Our Starter plan is perfect for new startups looking to establish their online presence, while our Pro and Enterprise plans cater to growing and established businesses with more complex needs.',
+      'Email me at kryptochaingames@gmail.com, use the contact form, or message me directly through the chat on this site. You can also find me on LinkedIn and GitHub.',
   },
 ]
 
@@ -326,6 +409,7 @@ export const GET = async () => {
     brandList,
     innovationList,
     onlinePresenceList,
+    fullStackProjectsList,
     gameProjectsList,
     blockchainProjectsList,
     creativeMindList,

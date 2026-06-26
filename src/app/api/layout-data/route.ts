@@ -1,55 +1,45 @@
 import { NextResponse } from "next/server";
 
 const headerData = [
-    { label: 'About us', href: '/#aboutus' },
+    { label: 'About', href: '/#aboutus' },
     { label: 'Services', href: '/#services' },
     { label: 'Work', href: '/#work' },
-    { label: 'Team', href: '/#team' },
-    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Projects', href: '/#blockchain-projects' },
+    { label: 'Contact', href: '/contact' },
     { label: 'Chat', href: '/chat' },
 ];
 
 const footerData = {
     brand: {
-        name: "DevCore",
-        tagline: "Empowering businesses with innovative solutions. Let's create something amazing together.",
+        name: "Ammad Waseem",
+        tagline: "Backend, blockchain & game developer. Let's build something secure, scalable, and worth shipping together.",
         socialLinks: [
             {
-                icon: "/images/home/footerSocialIcon/twitter.svg",
-                dark_icon: "/images/home/footerSocialIcon/twitter_dark.svg",
-                link: "https://twitter.com"
+                icon: "/images/home/footerSocialIcon/github.svg",
+                dark_icon: "/images/home/footerSocialIcon/github_dark.svg",
+                link: "https://github.com/kryptoverse"
             },
             {
                 icon: "/images/home/footerSocialIcon/linkedin.svg",
                 dark_icon: "/images/home/footerSocialIcon/linkedin_dark.svg",
-                link: "https://www.linkedin.com/company/algodevcore/"
-            },
-            {
-                icon: "/images/home/footerSocialIcon/dribble.svg",
-                dark_icon: "/images/home/footerSocialIcon/dribble_dark.svg",
-                link: "https://dribbble.com"
-            },
-            {
-                icon: "/images/home/footerSocialIcon/instagram.svg",
-                dark_icon: "/images/home/footerSocialIcon/instagram_dark.svg",
-                link: "https://www.instagram.com/algo.devcore?igsh=MWsxdWRxdTd3MTZ5Mw%3D%3D&utm_source=qr"
+                link: "https://www.linkedin.com/in/ammad-waseem-945530334"
             }
         ]
     },
     sitemap: {
         name: "Sitemap",
         links: [
-            { name: "Chat with us", url: "/chat" },
-            { name: "About us", url: "/#aboutus" },
-            { name: "Work", url: "/#work" },
+            { name: "About", url: "/#aboutus" },
             { name: "Services", url: "/#services" },
-            { name: "Pricing", url: "/#pricing" }
+            { name: "Work", url: "/#work" },
+            { name: "Projects", url: "/#blockchain-projects" },
+            { name: "Chat with me", url: "/chat" }
         ]
     },
     otherPages: {
         name: "Other Pages",
         links: [
-            { name: "Error 404", url: "/not-found" },
+            { name: "Contact", url: "/contact" },
             { name: "Terms & Conditions", url: "/terms-and-conditions" },
             { name: "Privacy Policy", url: "/privacy-policy" },
             { name: "Documentation", url: "/documentation" }
@@ -57,11 +47,11 @@ const footerData = {
     },
     contactDetails: {
         name: "Contact Details",
-        address: "Institute of Space and Technology Islamabad",
-        email: "algo.devcore@gmail.com",
+        address: "Islamabad, Pakistan",
+        email: "kryptochaingames@gmail.com",
         phone: "+923704818015"
     },
-    copyright: "©2025 DevCore. All Rights Reserved"
+    copyright: "©2025 Ammad Waseem. All Rights Reserved"
 };
 
 export const GET = async () => {

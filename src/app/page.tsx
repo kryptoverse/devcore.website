@@ -3,10 +3,10 @@ import Faq from "./components/home/faq";
 import HeroSection from "./components/home/hero";
 import Innovation from "./components/home/innovation";
 import OnlinePresence from "./components/home/online-presence";
+import FullStackProjects from "./components/home/fullstack-projects";
 import GameProjects from "./components/home/game-projects";
 import BlockchainProjects from "./components/home/blockchain-projects";
 import Solutions from "./components/home/solution";
-import Subscription from "./components/home/subscription";
 import WebResult from "./components/home/web-result";
 
 
@@ -29,21 +29,21 @@ export default function Home() {
       <OnlinePresence />
       {/* ---------------------Online presence section Ends-----------------  */}
 
-      {/* ---------------------Game Projects section Starts-----------------  */}
-      <GameProjects />
-      {/* ---------------------Game Projects section Ends-----------------  */}
+      {/* ---------------------Full-Stack Projects section Starts-----------------  */}
+      <FullStackProjects />
+      {/* ---------------------Full-Stack Projects section Ends-----------------  */}
 
       {/* ---------------------Blockchain Projects section Starts-----------------  */}
       <BlockchainProjects />
       {/* ---------------------Blockchain Projects section Ends-----------------  */}
 
+      {/* ---------------------Game Projects section Starts-----------------  */}
+      <GameProjects />
+      {/* ---------------------Game Projects section Ends-----------------  */}
+
       {/* ---------------------Customer Stories section Starts-----------------  */}
       <CustomerStories />
       {/* ---------------------Customer Stories section Ends-----------------  */}
-
-      {/* ---------------------Subscription section Starts-----------------  */}
-      <Subscription />
-      {/* ---------------------Subscription section Ends-----------------  */}
 
       {/* ---------------------Faq section Starts-----------------  */}
       <Faq />

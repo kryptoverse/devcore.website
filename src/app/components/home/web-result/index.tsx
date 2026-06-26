@@ -36,8 +36,8 @@ function WebResult() {
           <div className='flex flex-col  lg:gap-16 gap-5'>
             <div className='flex flex-col items-center justify-center text-center gap-3'>
               <h2 className='max-w-6xl'>
-                <TextGenerateEffect words='Crafting exceptional, well experienced & technology driven
-                strategies to drive impactful results with' duration={0.2} />
+                <TextGenerateEffect words='Crafting exceptional, well-engineered & technology driven
+                solutions that drive impactful results with' duration={0.2} />
               </h2>
               <div>
                 <h2>
@@ -64,17 +64,17 @@ function WebResult() {
               <div className='relative 2xl:px-24 px-16 md:py-8 py-4'>
                 <h2 ref={ref} className='2xl:text-9xl md:text-7xl text-5xl'>
                   <sup>+</sup>
-                  {inView ? <CountUp start={0} end={40} duration={3} /> : '0'}
+                  {inView ? <CountUp start={0} end={30} duration={3} /> : '0'}
                 </h2>
                 <p className='mt-2 text-dark_black/60 dark:text-white/60'>
-                  Total Projects Completed
+                  Projects Delivered
                 </p>
                 <div className='hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 h-28 w-px bg-dark_black/10 dark:bg-white/10' />
               </div>
               <div className='relative 2xl:px-24 px-16 md:py-8 py-4'>
                 <h2 className='2xl:text-9xl md:text-7xl text-5xl'>
                   <sup>+</sup>
-                  {inView ? <CountUp start={0} end={15} duration={3} /> : '0'}
+                  {inView ? <CountUp start={0} end={4} duration={3} /> : '0'}
                 </h2>
                 <p className='mt-2 text-dark_black/60 dark:text-white/60'>
                   Years of Experience
@@ -84,10 +84,10 @@ function WebResult() {
               <div className='relative 2xl:px-24 px-16 md:py-8 py-4'>
                 <h2 className='2xl:text-9xl md:text-7xl text-5xl'>
                   <sup>+</sup>
-                  {inView ? <CountUp start={0} end={12} duration={3} /> : '0'}
+                  {inView ? <CountUp start={0} end={20} duration={3} /> : '0'}
                 </h2>
                 <p className='mt-2 text-dark_black/60 dark:text-white/60'>
-                  Ongoing Projects
+                  Clients Served
                 </p>
               </div>
             </div>

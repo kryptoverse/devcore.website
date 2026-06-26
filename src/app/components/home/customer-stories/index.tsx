@@ -24,9 +24,9 @@ function CustomerStories() {
           <div className="flex flex-col justify-center gap-10 md:gap-20">
             <div className="mx-auto max-w-2xl flex items-center text-center">
               <h2>
-                <TextGenerateEffect words="What our satisfied customers are saying" />
+                <TextGenerateEffect words="What clients say about working" />
                 <TextGenerateEffect
-                  words="about us"
+                  words="with me"
                   delay={1}
                   className="italic font-normal instrument-font"
                 />
@@ -48,7 +48,7 @@ function CustomerStories() {
                   </span>
                   <div className="flex flex-col gap-6">
                     <h4 className="text-white text-2xl">
-                      "DevCore delivered an exceptional blockchain solution that exceeded our expectations. Their expertise in Web3 development is truly remarkable!"
+                      "Ammad delivered an exceptional blockchain solution that exceeded our expectations. His expertise in Web3 development is truly remarkable!"
                     </h4>
                     <div className="flex flex-col gap-1">
                       <p className="text-white font-medium">Marcus Chen</p>
@@ -75,7 +75,7 @@ function CustomerStories() {
                   <div className="flex flex-col gap-1">
                     <h2 className="text-7xl font-medium dark:text-dark_black">91%</h2>
                     <h3 className="dark:text-dark_black text-2xl">
-                      Clients recommend our design services.
+                      of clients return or refer new work to me.
                     </h3>
                   </div>
                 </motion.div>
@@ -95,7 +95,7 @@ function CustomerStories() {
                       Customer stories
                     </span>
                     <h3 className="text-white text-2xl">
-                      The smart contract development was flawless. DevCore's security-first approach gave us complete confidence in our DApp!
+                      The smart contract development was flawless. Ammad's security-first approach gave us complete confidence in our DApp!
                     </h3>
                     <div>
                       <Image
@@ -122,7 +122,7 @@ function CustomerStories() {
                       Customer stories
                     </span>
                     <h2 className="text-2xl lg:text-5xl">
-                      "Working with DevCore was a game-changer. Their full-stack development skills and innovative approach turned our concept into a stunning reality."
+                      "Working with Ammad was a game-changer. His full-stack development skills and rapid delivery turned our concept into a working product."
                     </h2>
                   </div>
                   <div className="flex flex-col gap-1">

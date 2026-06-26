@@ -8,7 +8,7 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    interest: 'design & branding',
+    interest: 'Backend Development',
     budget: '',
     message: '',
   })
@@ -34,7 +34,7 @@ function ContactForm() {
     e.preventDefault()
     setLoader(true)
 
-    fetch('https://formsubmit.co/ajax/bhainirav772@gmail.com', {
+    fetch('https://formsubmit.co/ajax/kryptochaingames@gmail.com', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
@@ -161,11 +161,13 @@ function ContactForm() {
                       id='interest'
                       value={formData.interest}
                       onChange={handleChange}>
-                      <option value='design & branding'>
-                        Design & Branding
+                      <option value='Backend Development'>
+                        Backend Development
                       </option>
-                      <option value='Ecommerce'>Ecommerce</option>
-                      <option value='Specialist'>Specialist</option>
+                      <option value='Blockchain & Web3'>Blockchain & Web3</option>
+                      <option value='Full-Stack Web App'>Full-Stack Web App</option>
+                      <option value='Game Development'>Game Development</option>
+                      <option value='Other'>Other</option>
                     </select>
                   </div>
                   <div className='w-full'>

@@ -26,17 +26,17 @@ function Solutions() {
               className='flex flex-col gap-6 items-center md:max-w-3xl mx-auto'>
               <div className='flex flex-col gap-3 items-center text-center'>
                 <h2 className='text-3xl md:text-5xl text-dark_black dark:text-dark_black'>
-                  <TextGenerateEffect words="Innovative solutions for" />
+                  <TextGenerateEffect words="Let's build your" />
                   <TextGenerateEffect
-                    words="bold brands"
+                    words="next project"
                     delay={1}
                     className="italic font-normal instrument-font"
                   />
                 </h2>
                 <p className='text-dark_black dark:text-dark_black'>
-                  Looking to elevate your brand? We craft immersive experiences
-                  that captivate, engage, and make your business unforgettable
-                  in every interaction.
+                  Have an idea you want to bring to life? I craft secure, scalable
+                  products — backend systems, smart contracts, full-stack apps, and
+                  games — built to perform and made to last.
                 </p>
               </div>
               <Link

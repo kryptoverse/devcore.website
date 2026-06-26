@@ -1,27 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
-interface HeaderProps { }
-const Logo: React.FC<HeaderProps> = () => {
+const Logo: React.FC = () => {
     return (
-        <Link href="/">
-            <Image
-                src="/images/logo/DarkModeLogo.png"
-                alt="logo"
-                width={120}
-                height={40}
-                quality={100}
-                priority={true}
-                className='dark:hidden w-[160px] h-auto object-contain'
-            />
-            <Image
-                src="/images/logo/logo.png"
-                alt="logo"
-                width={120}
-                height={40}
-                quality={100}
-                className='dark:block hidden w-[160px] h-auto object-contain'
-            />
+        <Link href="/" className="flex items-center">
+            <span className="text-xl md:text-2xl font-bold text-dark_black dark:text-white whitespace-nowrap">
+                Ammad
+                <span className="italic font-normal instrument-font"> Waseem</span>
+            </span>
         </Link>
     );
 };

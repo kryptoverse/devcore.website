@@ -41,17 +41,17 @@ function HeroSection() {
               // {...bottomAnimation}
               className='relative flex flex-col text-center items-center gap-4'>
               <h1>
-                <TextGenerateEffect words="Building bold brands with" />
+                <TextGenerateEffect words="Hi, I'm Ammad — I build bold ideas with" />
                 <TextGenerateEffect
-                  words="thoughtful design"
+                  words="clean code"
                   delay={0.8}
                   className="italic font-normal instrument-font"
                 />
               </h1>
               <p className='max-w-38 text-dark_black/60 dark:text-white/60'>
-                At DevCore, we help small startups tackle the world’s biggest
-                challenges with tailored solutions, guiding you from strategy to
-                success in a competitive market.
+                I'm a backend, blockchain, and game developer. I help startups and
+                businesses turn ideas into secure, scalable products — from APIs and
+                smart contracts to full-stack apps and immersive 3D games.
               </p>
             </div>
 
@@ -64,7 +64,7 @@ function HeroSection() {
                   href='/chat'
                   className='group bg-purple_blue text-white font-medium flex flex-row justify-between items-center py-2 px-5 rounded-full max-w-64 w-full md:py-3 border border-purple_blue transition-all duration-200 ease-in-out hover:bg-transparent hover:text-purple_blue'>
                   <span className='flex text-start transform transition-transform duration-200 ease-in-out group-hover:translate-x-28'>
-                    Get Started
+                    Hire Me
                   </span>
                   <svg
                     width='40'
@@ -103,7 +103,7 @@ function HeroSection() {
                       <StarRating count={4} color='#F59E0B' />
                     </div>
                     <p className='text-sm font-normal text-dark_black/60 dark:text-white/60'>
-                      Trusted by 1000+ clients
+                      Trusted by 20+ clients worldwide
                     </p>
                   </div>
                 </div>
