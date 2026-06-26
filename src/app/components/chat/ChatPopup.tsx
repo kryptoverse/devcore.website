@@ -411,6 +411,16 @@ function ChatPopupInner() {
                                     </div>
                                 )}
 
+                                {/* Free-service notice */}
+                                <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-100 dark:border-amber-800/40 px-4 py-2 shrink-0">
+                                    <p className="text-[11px] leading-snug text-amber-700 dark:text-amber-300">
+                                        ⚠️ This chat runs on a free hosting service. If messages are not sending, the server may be down — please reach me at{" "}
+                                        <a href="mailto:kryptochaingames@gmail.com" className="font-semibold underline">kryptochaingames@gmail.com</a>{" "}
+                                        or WhatsApp{" "}
+                                        <a href="https://wa.me/923704818015" target="_blank" rel="noopener noreferrer" className="font-semibold underline">+92 370 4818015</a>.
+                                    </p>
+                                </div>
+
                                 {/* Messages */}
                                 <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
                                     {isMessagesLoading ? (
@@ -572,6 +582,21 @@ function UnauthenticatedPanel({ onClose }: { onClose: () => void }) {
                     >
                         Create Account
                     </Link>
+                </div>
+
+                {/* Free-service notice + direct contact */}
+                <div className="w-full mt-2 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/40 p-3 text-center">
+                    <p className="text-[11px] leading-snug text-amber-700 dark:text-amber-300">
+                        ⚠️ This chat runs on a free hosting service, so it may be down at times. You can always reach me directly:
+                    </p>
+                    <div className="mt-2 flex flex-col gap-1 text-xs">
+                        <a href="mailto:kryptochaingames@gmail.com" className="font-semibold text-dark_black dark:text-white hover:underline">
+                            ✉️ kryptochaingames@gmail.com
+                        </a>
+                        <a href="https://wa.me/923704818015" target="_blank" rel="noopener noreferrer" className="font-semibold text-green-600 dark:text-green-400 hover:underline">
+                            💬 WhatsApp +92 370 4818015
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -53,6 +53,16 @@ const ChatWindow = () => {
         <div className="flex flex-col h-full">
             <ChatHeader />
 
+            {/* Free-service notice */}
+            <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-100 dark:border-amber-800/40 px-4 py-2">
+                <p className="text-xs leading-snug text-amber-700 dark:text-amber-300">
+                    ⚠️ This chat runs on a free hosting service. If your messages are not sending, the server may be down — please reach me at{" "}
+                    <a href="mailto:kryptochaingames@gmail.com" className="font-semibold underline">kryptochaingames@gmail.com</a>{" "}
+                    or WhatsApp{" "}
+                    <a href="https://wa.me/923704818015" target="_blank" rel="noopener noreferrer" className="font-semibold underline">+92 370 4818015</a>.
+                </p>
+            </div>
+
             {/* Offline Admin Banner */}
             {selectedUser && !onlineUsers.includes(selectedUser._id) && (
                 <div className="bg-blue-50 dark:bg-blue-900/20 border-b border-blue-200 dark:border-blue-800 px-4 py-3">

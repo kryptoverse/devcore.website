@@ -100,6 +100,16 @@ const Footer = () => {
                   {footerData?.contactDetails?.phone}
                 </Link>
               </p>
+              {footerData?.contactDetails?.whatsapp && (
+                <p className='text-dark_black/60 hover:text-black dark:text-white/60 dark:hover:text-white'>
+                  <Link
+                    href={`https://wa.me/${footerData.contactDetails.whatsapp.replace(/[^0-9]/g, '')}`}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    WhatsApp: {footerData.contactDetails.whatsapp}
+                  </Link>
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -49,7 +49,8 @@ const footerData = {
         name: "Contact Details",
         address: "Islamabad, Pakistan",
         email: "kryptochaingames@gmail.com",
-        phone: "+923704818015"
+        phone: "+923704818015",
+        whatsapp: "+923704818015"
     },
     copyright: "©2025 Ammad Waseem. All Rights Reserved"
 };
