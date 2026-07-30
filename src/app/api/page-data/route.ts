@@ -62,7 +62,7 @@ const innovationList = [
   },
   {
     image: '/images/home/innovation/brand.svg',
-    title: 'Game\nDevelopment',
+    title: 'MERN\nStack',
     bg_color: 'bg-purple/20',
     txt_color: 'text-purple',
   },
@@ -113,46 +113,54 @@ const onlinePresenceList = [
   },
 ]
 
-const gameProjectsList = [
+const aiProjectsList = [
   {
-    videoId: 'mEsRdIeIjuw',
-    title: 'Open World Environment Design',
-    tag: ['Game Development', '3D Design', 'Environment Art'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://salesbot.io/',
+    title: 'Salesbot',
+    tag: ['AI Marketing', 'Automation', 'Lead Gen'],
+    link: 'https://salesbot.io/',
   },
   {
-    videoId: 'F0Ce81IXXAY',
-    title: 'Intro Cinematic for Game',
-    tag: ['Cinematic Design', 'Animation', 'Storytelling'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://localfinder.biz/',
+    title: 'LocalFinder',
+    tag: ['AI', 'Directory', 'Business'],
+    link: 'https://localfinder.biz/',
   },
   {
-    videoId: 'puE_kyVxs7c',
-    title: 'Black Strike',
-    tag: ['Game Development', 'Action Game', 'Multiplayer'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://leadsync.me/',
+    title: 'LeadSync',
+    tag: ['Lead Gen', 'Integrations', 'Automation'],
+    link: 'https://leadsync.me/',
   },
   {
-    videoId: 'LnfTxWwl5eE',
-    title: 'DOG Kannel',
-    tag: ['Game Development', 'Simulation', 'AI'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://autodispatch.net/',
+    title: 'AutoDispatch',
+    tag: ['Logistics', 'Load Board', 'Automation'],
+    link: 'https://autodispatch.net/',
   },
   {
-    videoId: 'COfkm-SIVgA',
-    title: 'NGMI Multiplayer Shooter',
-    tag: ['UE5', 'Networking', 'Combat Systems'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://voice-flow.pro/',
+    title: 'Voice Flow',
+    tag: ['AI Transcription', 'OpenAI Whisper', 'Speech-to-Text'],
+    link: 'https://voice-flow.pro/',
   },
   {
-    videoId: '350QdtRabHs',
-    title: 'RPG Game System',
-    tag: ['UE5', 'Gameplay Systems', 'NPC AI'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://healthsync360.com/',
+    title: 'HealthSync360',
+    tag: ['HealthTech', 'AI Summary', 'Personal Health'],
+    link: 'https://healthsync360.com/',
   },
   {
-    videoId: 'xgeZlc3oCME',
-    title: 'Space Shooter',
-    tag: ['UE5', 'Physics-based Movement', 'Arcade'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://solvpro.com/',
+    title: 'SolvPro',
+    tag: ['AI', 'Solutions', 'Web App'],
+    link: 'https://solvpro.com/',
   },
   {
-    videoId: 'd_1-nRy0ahI',
-    title: 'Cinematic Character Creation',
-    tag: ['UE5', 'MetaHuman', 'Character Pipeline'],
+    image: 'https://image.thum.io/get/width/1200/crop/787/https://mr-reel.com/',
+    title: 'Mr. Reel',
+    tag: ['AI', 'Media', 'Web'],
+    link: 'https://mr-reel.com/',
   },
 ]
 
@@ -238,22 +246,12 @@ const creativeMindList = [
   {
     image: '/images/home/creative/creative_img_1.jpeg',
     name: 'Ammad Waseem',
-    position: 'Backend Developer and Blockchain Developer',
+    position: 'MERN Stack AI Engineer',
   },
   {
     image: '/images/home/creative/creative_img_2.jpeg',
     name: 'Rana Muhammad Areeb',
     position: 'Frontend Developer and AI Automation Engineer',
-  },
-  {
-    image: '/images/home/creative/creative_img_3.png',
-    name: 'Muhammad Hassnain',
-    position: 'Game Developer',
-  },
-  {
-    image: '/images/home/creative/creative_img_4.jpeg',
-    name: 'Saad Waseem',
-    position: 'Game Developer',
   }
 ]
 
@@ -344,7 +342,7 @@ const faqList = [
   {
     faq_que: 'What do you do?',
     faq_ans:
-      "I'm Ammad Waseem, a backend, blockchain, and game developer. I build production REST APIs (Node.js, Express, MongoDB), secure Solidity smart contracts and Web3 dApps, full-stack web applications, and immersive 3D games in Unreal Engine 5.",
+      "I'm Ammad Waseem, a MERN stack AI engineer. I build production REST APIs (Node.js, Express, MongoDB), secure Solidity smart contracts and Web3 dApps, and intelligent full-stack web applications powered by AI.",
   },
   {
     faq_que: 'Are you available for freelance work or hire?',
@@ -354,7 +352,7 @@ const faqList = [
   {
     faq_que: 'Which technologies do you work with?',
     faq_ans:
-      'Backend: Node.js, Express, MongoDB, MySQL, PostgreSQL, Redis, Socket.io and Stripe. Blockchain: Solidity, Hardhat, Foundry, Ethereum, Polygon, Base, account abstraction and ERC20/721/1155. Frontend: Next.js, React and Tailwind CSS. Games: Unreal Engine 5 and Blueprints.',
+      'Stack: MongoDB, Express.js, React, Node.js (MERN), Next.js, and Tailwind CSS. AI: OpenAI, LLMs, and Automations. Blockchain: Solidity, Hardhat, Ethereum, Polygon, and Web3 integration.',
   },
   {
     faq_que: 'How long does a typical project take?',
@@ -410,7 +408,7 @@ export const GET = async () => {
     innovationList,
     onlinePresenceList,
     fullStackProjectsList,
-    gameProjectsList,
+    aiProjectsList,
     blockchainProjectsList,
     creativeMindList,
     WebResultTagList,

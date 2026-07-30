@@ -49,9 +49,9 @@ function HeroSection() {
                 />
               </h1>
               <p className='max-w-38 text-dark_black/60 dark:text-white/60'>
-                I'm a backend, blockchain, and game developer. I help startups and
-                businesses turn ideas into secure, scalable products — from APIs and
-                smart contracts to full-stack apps and immersive 3D games.
+                I'm a MERN stack AI engineer. I help startups and
+                brands craft modern, intelligent web applications
+                and automation tools.
               </p>
             </div>
 

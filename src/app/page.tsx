@@ -4,7 +4,7 @@ import HeroSection from "./components/home/hero";
 import Innovation from "./components/home/innovation";
 import OnlinePresence from "./components/home/online-presence";
 import FullStackProjects from "./components/home/fullstack-projects";
-import GameProjects from "./components/home/game-projects";
+import AiProjects from "./components/home/ai-projects";
 import BlockchainProjects from "./components/home/blockchain-projects";
 import Solutions from "./components/home/solution";
 import WebResult from "./components/home/web-result";
@@ -37,9 +37,9 @@ export default function Home() {
       <BlockchainProjects />
       {/* ---------------------Blockchain Projects section Ends-----------------  */}
 
-      {/* ---------------------Game Projects section Starts-----------------  */}
-      <GameProjects />
-      {/* ---------------------Game Projects section Ends-----------------  */}
+      {/* ---------------------AI Projects section Starts-----------------  */}
+      <AiProjects />
+      {/* ---------------------AI Projects section Ends-----------------  */}
 
       {/* ---------------------Customer Stories section Starts-----------------  */}
       <CustomerStories />

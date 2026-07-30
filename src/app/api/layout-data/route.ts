@@ -12,7 +12,7 @@ const headerData = [
 const footerData = {
     brand: {
         name: "Ammad Waseem",
-        tagline: "Backend, blockchain & game developer. Let's build something secure, scalable, and worth shipping together.",
+        tagline: "MERN stack AI engineer. Let's build intelligent web applications and automation tools together.",
         socialLinks: [
             {
                 icon: "/images/home/footerSocialIcon/github.svg",

@@ -1,12 +1,15 @@
 'use client'
+import { Icon } from '@iconify/react/dist/iconify.js'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'motion/react'
 import { TextGenerateEffect } from '@/app/components/ui/text-generate-effect'
 
-function GameProjects() {
+function AiProjects() {
     const ref = useRef(null)
     const inView = useInView(ref, { once: true, margin: '-100px' })
-    const [gameProjectsList, setGameProjectsList] = useState<any>(null)
+    const [aiProjectsList, setAiProjectsList] = useState<any>(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,9 +18,9 @@ function GameProjects() {
                 if (!res.ok) throw new Error('Failed to fetch')
 
                 const data = await res.json()
-                setGameProjectsList(data?.gameProjectsList)
+                setAiProjectsList(data?.aiProjectsList)
             } catch (error) {
-                console.error('Error fetching game projects:', error)
+                console.error('Error fetching AI projects:', error)
             }
         }
         fetchData()
@@ -26,53 +29,67 @@ function GameProjects() {
     const bottomAnimation = (index: number) => ({
         initial: { y: 50, opacity: 0 },
         animate: inView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 },
-        transition: { duration: 0.8, delay: 0.4 + index * 0.2 },
+        transition: { duration: 0.8, delay: 0.4 + index * 0.2, },
     })
 
     return (
-        <section id='game-projects'>
+        <section id='ai-projects'>
             <div ref={ref} className='2xl:py-20 py-11'>
                 <div className='container'>
                     <div className='flex flex-col justify-center items-center gap-10 md:gap-20'>
                         <div className='max-w-2xl text-center'>
                             <h2>
-                                <TextGenerateEffect words="Bringing immersive worlds to life through" duration={0.5} />
+                                <TextGenerateEffect words="Revolutionizing workflows with" duration={0.5} />
                                 <TextGenerateEffect
-                                    words="game development"
+                                    words="AI integrations"
                                     delay={1.2}
                                     className="italic font-normal instrument-font"
                                 />
                             </h2>
                             <p className='text-dark_black/60 dark:text-white/60 mt-4'>
-                                Featured Projects
+                                Featured AI Projects
                             </p>
                         </div>
                         <div className='grid md:grid-cols-2 gap-x-6 gap-y-8 w-full'>
-                            {gameProjectsList?.map((project: any, index: number) => (
+                            {aiProjectsList?.map((items: any, index: number) => (
                                 <motion.div
                                     key={index}
-                                    className='flex flex-col gap-6'
+                                    className='group flex flex-col gap-6 cursor-pointer'
                                     {...bottomAnimation(index)}
                                 >
-                                    <div className='relative overflow-hidden rounded-2xl aspect-video bg-black'>
-                                        <iframe
-                                            width="100%"
-                                            height="100%"
-                                            src={`https://www.youtube.com/embed/${project.videoId}`}
-                                            title={project.title}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className='absolute top-0 left-0 w-full h-full'
-                                        ></iframe>
+                                    <div className='relative overflow-hidden rounded-2xl aspect-[625/410]'>
+                                        <Image
+                                            src={items.image}
+                                            alt={items.title}
+                                            width={625}
+                                            height={410}
+                                            className='rounded-2xl w-full h-full object-cover'
+                                        />
+                                        {items.link && (
+                                            <Link
+                                                href={items.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className='absolute top-0 left-0 bg-black/50 w-full h-full rounded-2xl hidden group-hover:flex'
+                                            >
+                                                <span className='flex justify-end p-5 w-full'>
+                                                    <Icon
+                                                        icon='icon-park-solid:circle-right-up'
+                                                        width='50'
+                                                        height='50'
+                                                        style={{ color: '#fbfbfb' }}
+                                                    />
+                                                </span>
+                                            </Link>
+                                        )}
                                     </div>
 
                                     <div className='flex flex-col items-start gap-4'>
-                                        <h3 className='text-2xl'>
-                                            {project.title}
+                                        <h3 className='group-hover:text-purple_blue text-2xl'>
+                                            {items.title}
                                         </h3>
                                         <div className='flex gap-3 flex-wrap'>
-                                            {project.tag?.map((tag: any, idx: number) => (
+                                            {items.tag?.map((tag: any, idx: number) => (
                                                 <p
                                                     key={idx}
                                                     className='text-xs border border-dark_black/30 dark:border-white/40 w-fit py-1 px-3 rounded-full hover:bg-dark_black hover:text-white dark:hover:bg-white dark:hover:text-dark_black hover:border-dark_black dark:hover:border-white transition-colors'
@@ -92,4 +109,4 @@ function GameProjects() {
     )
 }
 
-export default GameProjects
+export default AiProjects

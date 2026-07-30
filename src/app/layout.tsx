@@ -5,8 +5,8 @@ import Providers from '../providers/Provider'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Ammad Waseem — Backend, Blockchain & Game Developer',
-  description: "Portfolio of Ammad Waseem, a backend, blockchain, and game developer. I build production REST APIs, secure Solidity smart contracts and Web3 dApps, full-stack web apps, and immersive 3D games in Unreal Engine 5. Available for freelance and hire.",
+  title: 'Ammad Waseem — MERN Stack AI Engineer',
+  description: "Portfolio of Ammad Waseem, a MERN stack AI engineer. I build intelligent full-stack web applications powered by AI, robust REST APIs, secure Solidity smart contracts and Web3 dApps. Available for freelance and hire.",
   icons: {
     icon: '/icon.svg',
   },
