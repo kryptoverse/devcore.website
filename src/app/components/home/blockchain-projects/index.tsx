@@ -55,6 +55,7 @@ function BlockchainProjects() {
                                 <motion.div
                                     key={index}
                                     className='group flex flex-col gap-6 cursor-pointer'
+                                    onClick={() => items.link && window.open(items.link, '_blank')}
                                     {...bottomAnimation(index)}
                                 >
                                     <div className='relative overflow-hidden rounded-2xl aspect-[625/410]'>
