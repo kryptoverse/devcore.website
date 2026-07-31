@@ -206,11 +206,38 @@ const fullStackProjectsList = [
   },
 ]
 
+const appProjectsList = [
+  {
+    image: '/images/home/appProjects/bitemap.jpeg',
+    title: 'Bite Map (Foodchain)',
+    tag: ['Mobile App', 'Android', 'iOS'],
+    link: 'https://drive.google.com/file/d/1acRtEBgdZkCBwySrabVMwukpBbfydFQ4/view?usp=sharing',
+  },
+  {
+    image: '/images/home/appProjects/gym.jpeg',
+    title: 'Gym Management App',
+    tag: ['Mobile App', 'Fitness', 'Tracking'],
+    link: 'https://drive.google.com/file/d/1trrlamXG24a_raXydzFHt_sNcaRLzImz/view?usp=sharing',
+  },
+  {
+    image: '/images/home/appProjects/thinkwell.jpeg',
+    title: 'Thinkwell Therapist UK Clinic',
+    tag: ['iOS App', 'Health', 'Therapy'],
+    link: 'https://drive.google.com/file/d/1o3u0vmgAlGf6WnmgWwNrz-P--Q-he8TA/view?usp=sharing',
+  },
+  {
+    image: '/images/home/appProjects/trading.jpeg',
+    title: 'Trading Journal App',
+    tag: ['Mobile App', 'Finance', 'Trading'],
+    link: 'https://drive.google.com/file/d/1irtvAbuvPBS_74t5k42Z9fDrXHBnEJ5U/view?usp=sharing',
+  },
+]
+
 const creativeMindList = [
   {
     image: '/images/home/creative/creative_img_1.jpeg',
     name: 'Ammad Waseem',
-    position: 'MERN Stack AI Engineer',
+    position: 'MERN Stack AI and Android/iOS App Engineer',
   },
   {
     image: '/images/home/creative/creative_img_2.jpeg',
@@ -306,7 +333,7 @@ const faqList = [
   {
     faq_que: 'What do you do?',
     faq_ans:
-      "I'm Ammad Waseem, a MERN stack AI engineer. I build production REST APIs (Node.js, Express, MongoDB), secure Solidity smart contracts and Web3 dApps, and intelligent full-stack web applications powered by AI.",
+      "I'm Ammad Waseem, a MERN stack AI and Android/iOS app engineer. I build production REST APIs (Node.js, Express, MongoDB), secure Solidity smart contracts and Web3 dApps, intelligent full-stack web applications powered by AI, and modern mobile applications.",
   },
   {
     faq_que: 'Are you available for freelance work or hire?',
@@ -373,6 +400,7 @@ export const GET = async () => {
     onlinePresenceList,
     fullStackProjectsList,
     aiProjectsList,
+    appProjectsList,
     blockchainProjectsList,
     creativeMindList,
     WebResultTagList,

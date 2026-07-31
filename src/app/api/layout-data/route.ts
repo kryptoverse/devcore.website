@@ -4,7 +4,10 @@ const headerData = [
     { label: 'About', href: '/#aboutus' },
     { label: 'Services', href: '/#services' },
     { label: 'Work', href: '/#work' },
-    { label: 'Projects', href: '/#blockchain-projects' },
+    { label: 'Apps', href: '/#app-projects' },
+    { label: 'Web', href: '/#fullstack-projects' },
+    { label: 'Blockchain', href: '/#blockchain-projects' },
+    { label: 'AI', href: '/#ai-projects' },
     { label: 'Contact', href: '/contact' },
     { label: 'Chat', href: '/chat' },
 ];
@@ -12,7 +15,7 @@ const headerData = [
 const footerData = {
     brand: {
         name: "Ammad Waseem",
-        tagline: "MERN stack AI engineer. Let's build intelligent web applications and automation tools together.",
+        tagline: "MERN stack AI and Android/iOS app engineer. Let's build intelligent web and mobile applications together.",
         socialLinks: [
             {
                 icon: "/images/home/footerSocialIcon/github.svg",
@@ -32,7 +35,10 @@ const footerData = {
             { name: "About", url: "/#aboutus" },
             { name: "Services", url: "/#services" },
             { name: "Work", url: "/#work" },
-            { name: "Projects", url: "/#blockchain-projects" },
+            { name: "Apps", url: "/#app-projects" },
+            { name: "Web", url: "/#fullstack-projects" },
+            { name: "Blockchain", url: "/#blockchain-projects" },
+            { name: "AI", url: "/#ai-projects" },
             { name: "Chat with me", url: "/chat" }
         ]
     },

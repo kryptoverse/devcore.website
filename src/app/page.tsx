@@ -5,6 +5,7 @@ import Innovation from "./components/home/innovation";
 import OnlinePresence from "./components/home/online-presence";
 import FullStackProjects from "./components/home/fullstack-projects";
 import AiProjects from "./components/home/ai-projects";
+import AppProjects from "./components/home/app-projects";
 import BlockchainProjects from "./components/home/blockchain-projects";
 import Solutions from "./components/home/solution";
 import WebResult from "./components/home/web-result";
@@ -33,13 +34,17 @@ export default function Home() {
       <FullStackProjects />
       {/* ---------------------Full-Stack Projects section Ends-----------------  */}
 
-      {/* ---------------------Blockchain Projects section Starts-----------------  */}
-      <BlockchainProjects />
-      {/* ---------------------Blockchain Projects section Ends-----------------  */}
-
       {/* ---------------------AI Projects section Starts-----------------  */}
       <AiProjects />
       {/* ---------------------AI Projects section Ends-----------------  */}
+
+      {/* ---------------------App Projects section Starts-----------------  */}
+      <AppProjects />
+      {/* ---------------------App Projects section Ends-----------------  */}
+
+      {/* ---------------------Blockchain Projects section Starts-----------------  */}
+      <BlockchainProjects />
+      {/* ---------------------Blockchain Projects section Ends-----------------  */}
 
       {/* ---------------------Customer Stories section Starts-----------------  */}
       <CustomerStories />

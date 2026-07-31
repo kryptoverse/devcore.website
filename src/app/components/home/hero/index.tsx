@@ -49,7 +49,7 @@ function HeroSection() {
                 />
               </h1>
               <p className='max-w-38 text-dark_black/60 dark:text-white/60'>
-                I'm a MERN stack AI engineer. I help startups and
+                I'm a MERN stack AI and Android/iOS app engineer. I help startups and
                 brands craft modern, intelligent web applications
                 and automation tools.
               </p>
