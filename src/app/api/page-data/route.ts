@@ -115,52 +115,16 @@ const onlinePresenceList = [
 
 const aiProjectsList = [
   {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://salesbot.io/',
-    title: 'Salesbot',
-    tag: ['AI Marketing', 'Automation', 'Lead Gen'],
-    link: 'https://salesbot.io/',
-  },
-  {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://localfinder.biz/',
-    title: 'LocalFinder',
-    tag: ['AI', 'Directory', 'Business'],
-    link: 'https://localfinder.biz/',
-  },
-  {
     image: 'https://image.thum.io/get/width/1200/crop/787/https://leadsync.me/',
     title: 'LeadSync',
     tag: ['Lead Gen', 'Integrations', 'Automation'],
     link: 'https://leadsync.me/',
   },
   {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://autodispatch.net/',
-    title: 'AutoDispatch',
-    tag: ['Logistics', 'Load Board', 'Automation'],
-    link: 'https://autodispatch.net/',
-  },
-  {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://voice-flow.pro/',
-    title: 'Voice Flow',
-    tag: ['AI Transcription', 'OpenAI Whisper', 'Speech-to-Text'],
-    link: 'https://voice-flow.pro/',
-  },
-  {
     image: 'https://image.thum.io/get/width/1200/crop/787/https://healthsync360.com/',
     title: 'HealthSync360',
     tag: ['HealthTech', 'AI Summary', 'Personal Health'],
     link: 'https://healthsync360.com/',
-  },
-  {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://solvpro.com/',
-    title: 'SolvPro',
-    tag: ['AI', 'Solutions', 'Web App'],
-    link: 'https://solvpro.com/',
-  },
-  {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://mr-reel.com/',
-    title: 'Mr. Reel',
-    tag: ['AI', 'Media', 'Web'],
-    link: 'https://mr-reel.com/',
   },
 ]
 
