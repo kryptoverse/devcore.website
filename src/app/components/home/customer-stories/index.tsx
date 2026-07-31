@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 // All client review screenshots live in /public/reviews (1.jpeg … 12.jpeg)
-const REVIEW_IMAGES = Array.from({ length: 12 }, (_, i) => `/reviews/${i + 1}.jpeg`)
+const REVIEW_IMAGES = Array.from({ length: 10 }, (_, i) => `/reviews/${i + 1}.jpeg`)
 
 function CustomerStories() {
   // Index of the review currently expanded in the lightbox (null = closed)
