@@ -49,34 +49,34 @@ const brandList = [
 
 const innovationList = [
   {
-    image: '/images/home/innovation/uiux.svg',
-    title: 'Backend\nDevelopment',
-    bg_color: 'bg-orange/20',
-    txt_color: 'text-orange',
-  },
-  {
-    image: '/images/home/innovation/analitics.svg',
-    title: 'Blockchain\n& Web3',
-    bg_color: 'bg-blue/20',
-    txt_color: 'text-blue',
+    image: '/images/home/innovation/digitalmarketing.svg',
+    title: 'AI &\nAutomation',
+    bg_color: 'bg-green/20',
+    txt_color: 'text-green',
   },
   {
     image: '/images/home/innovation/brand.svg',
-    title: 'MERN\nStack',
+    title: 'Android & iOS\nApp Development',
     bg_color: 'bg-purple/20',
     txt_color: 'text-purple',
   },
   {
     image: '/images/home/innovation/webdevp.svg',
-    title: 'Full-Stack\nWeb Apps',
+    title: 'Web\nDevelopment',
     bg_color: 'bg-pink/20',
     txt_color: 'text-pink',
   },
   {
-    image: '/images/home/innovation/digitalmarketing.svg',
-    title: 'AI &\nAutomation',
-    bg_color: 'bg-green/20',
-    txt_color: 'text-green',
+    image: '/images/home/innovation/analitics.svg',
+    title: 'CRM &\nDashboards',
+    bg_color: 'bg-orange/20',
+    txt_color: 'text-orange',
+  },
+  {
+    image: '/images/home/innovation/uiux.svg',
+    title: 'Blockchain\n& Web3',
+    bg_color: 'bg-blue/20',
+    txt_color: 'text-blue',
   },
 ]
 
@@ -237,7 +237,7 @@ const creativeMindList = [
   {
     image: '/images/home/creative/creative_img_1.jpeg',
     name: 'Ammad Waseem',
-    position: 'MERN Stack AI and Android/iOS App Engineer',
+    position: 'Full-Stack AI Developer | Android & iOS App Engineer',
   },
   {
     image: '/images/home/creative/creative_img_2.jpeg',
@@ -333,7 +333,7 @@ const faqList = [
   {
     faq_que: 'What do you do?',
     faq_ans:
-      "I'm Ammad Waseem, a MERN stack AI and Android/iOS app engineer. I build production REST APIs (Node.js, Express, MongoDB), secure Solidity smart contracts and Web3 dApps, intelligent full-stack web applications powered by AI, and modern mobile applications.",
+      "I'm Ammad Waseem, a full-stack AI developer and mobile app engineer. I build AI-powered products and automation workflows, Android & iOS apps, full-stack web platforms and CRMs (Node.js, Express, MongoDB, Next.js), and secure Solidity smart contracts and Web3 dApps.",
   },
   {
     faq_que: 'Are you available for freelance work or hire?',
@@ -343,7 +343,7 @@ const faqList = [
   {
     faq_que: 'Which technologies do you work with?',
     faq_ans:
-      'Stack: MongoDB, Express.js, React, Node.js (MERN), Next.js, and Tailwind CSS. AI: OpenAI, LLMs, and Automations. Blockchain: Solidity, Hardhat, Ethereum, Polygon, and Web3 integration.',
+      'AI & Automation: OpenAI, LLMs, n8n and custom workflow automation. Web: MongoDB, Express.js, React, Node.js (MERN), Next.js and Tailwind CSS. Mobile: React Native / Flutter for Android and iOS. Blockchain: Solidity, Hardhat, Ethereum, Polygon and Web3 integration.',
   },
   {
     faq_que: 'How long does a typical project take?',

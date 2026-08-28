@@ -33,7 +33,7 @@ function OnlinePresence() {
   })
 
   return (
-    <section id='work'>
+    <section id='client-websites'>
       <div ref={ref} className='2xl:py-20 py-11'>
         <div className='container'>
           <div className='flex flex-col justify-center items-center gap-10 md:gap-20'>
@@ -46,6 +46,9 @@ function OnlinePresence() {
                   className="italic font-normal instrument-font"
                 />
               </h2>
+              <p className='text-dark_black/60 dark:text-white/60 mt-4'>
+                Featured Client Websites
+              </p>
             </div>
             <div className='grid md:grid-cols-2 gap-x-6 gap-y-8 w-full'>
               {onlinePresenceList?.map((items: any, index: number) => (

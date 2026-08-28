@@ -161,12 +161,16 @@ function ContactForm() {
                       id='interest'
                       value={formData.interest}
                       onChange={handleChange}>
+                      <option value='AI & Automation'>AI &amp; Automation</option>
+                      <option value='Android & iOS App Development'>
+                        Android &amp; iOS App Development
+                      </option>
+                      <option value='Web Development'>Web Development</option>
+                      <option value='CRM & Dashboards'>CRM &amp; Dashboards</option>
                       <option value='Backend Development'>
                         Backend Development
                       </option>
-                      <option value='Blockchain & Web3'>Blockchain & Web3</option>
-                      <option value='Full-Stack Web App'>Full-Stack Web App</option>
-                      <option value='Game Development'>Game Development</option>
+                      <option value='Blockchain & Web3'>Blockchain &amp; Web3</option>
                       <option value='Other'>Other</option>
                     </select>
                   </div>

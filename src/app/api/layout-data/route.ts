@@ -4,10 +4,10 @@ const headerData = [
     { label: 'About', href: '/#aboutus' },
     { label: 'Services', href: '/#services' },
     { label: 'Work', href: '/#work' },
-    { label: 'Apps', href: '/#app-projects' },
-    { label: 'Web', href: '/#fullstack-projects' },
-    { label: 'Blockchain', href: '/#blockchain-projects' },
     { label: 'AI', href: '/#ai-projects' },
+    { label: 'Apps', href: '/#app-projects' },
+    { label: 'Web & CRM', href: '/#fullstack-projects' },
+    { label: 'Blockchain', href: '/#blockchain-projects' },
     { label: 'Contact', href: '/contact' },
     { label: 'Chat', href: '/chat' },
 ];
@@ -15,7 +15,7 @@ const headerData = [
 const footerData = {
     brand: {
         name: "Ammad Waseem",
-        tagline: "MERN stack AI and Android/iOS app engineer. Let's build intelligent web and mobile applications together.",
+        tagline: "Full-stack AI developer and Android/iOS app engineer. Let's build intelligent web platforms, mobile apps and automation together.",
         socialLinks: [
             {
                 icon: "/images/home/footerSocialIcon/github.svg",
@@ -25,7 +25,12 @@ const footerData = {
             {
                 icon: "/images/home/footerSocialIcon/linkedin.svg",
                 dark_icon: "/images/home/footerSocialIcon/linkedin_dark.svg",
-                link: "https://www.linkedin.com/in/ammad-waseem-945530334"
+                link: "https://www.linkedin.com/in/ammad-waseem-7b324b296"
+            },
+            {
+                icon: "/images/home/footerSocialIcon/linktree.svg",
+                dark_icon: "/images/home/footerSocialIcon/linktree_dark.svg",
+                link: "https://linktr.ee/meliodus"
             }
         ]
     },
@@ -35,10 +40,11 @@ const footerData = {
             { name: "About", url: "/#aboutus" },
             { name: "Services", url: "/#services" },
             { name: "Work", url: "/#work" },
-            { name: "Apps", url: "/#app-projects" },
-            { name: "Web", url: "/#fullstack-projects" },
-            { name: "Blockchain", url: "/#blockchain-projects" },
-            { name: "AI", url: "/#ai-projects" },
+            { name: "AI & Automation", url: "/#ai-projects" },
+            { name: "Android & iOS Apps", url: "/#app-projects" },
+            { name: "Web & CRM", url: "/#fullstack-projects" },
+            { name: "Client Websites", url: "/#client-websites" },
+            { name: "Blockchain & Web3", url: "/#blockchain-projects" },
             { name: "Chat with me", url: "/chat" }
         ]
     },

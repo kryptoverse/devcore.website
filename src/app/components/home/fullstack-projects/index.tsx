@@ -39,15 +39,15 @@ function FullStackProjects() {
                     <div className='flex flex-col justify-center items-center gap-10 md:gap-20'>
                         <div className='max-w-2xl text-center'>
                             <h2>
-                                <TextGenerateEffect words="Shipping production-ready apps with" duration={0.5} />
+                                <TextGenerateEffect words="Shipping production-ready platforms and" duration={0.5} />
                                 <TextGenerateEffect
-                                    words="full-stack engineering"
+                                    words="CRM systems"
                                     delay={1.2}
                                     className="italic font-normal instrument-font"
                                 />
                             </h2>
                             <p className='text-dark_black/60 dark:text-white/60 mt-4'>
-                                Featured Full-Stack Projects
+                                Featured Web Platforms & CRM Systems
                             </p>
                         </div>
                         <div className='grid md:grid-cols-2 gap-x-6 gap-y-8 w-full'>

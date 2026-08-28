@@ -2,6 +2,7 @@ import CustomerStories from "./components/home/customer-stories";
 import Faq from "./components/home/faq";
 import HeroSection from "./components/home/hero";
 import Innovation from "./components/home/innovation";
+import PortfolioIntro from "./components/home/portfolio-intro";
 import OnlinePresence from "./components/home/online-presence";
 import FullStackProjects from "./components/home/fullstack-projects";
 import AiProjects from "./components/home/ai-projects";
@@ -26,13 +27,9 @@ export default function Home() {
       <Innovation />
       {/* ---------------------Innovation section Ends-----------------  */}
 
-      {/* ---------------------Online presence section Starts-----------------  */}
-      <OnlinePresence />
-      {/* ---------------------Online presence section Ends-----------------  */}
-
-      {/* ---------------------Full-Stack Projects section Starts-----------------  */}
-      <FullStackProjects />
-      {/* ---------------------Full-Stack Projects section Ends-----------------  */}
+      {/* ---------------------Portfolio intro section Starts-----------------  */}
+      <PortfolioIntro />
+      {/* ---------------------Portfolio intro section Ends-----------------  */}
 
       {/* ---------------------AI Projects section Starts-----------------  */}
       <AiProjects />
@@ -41,6 +38,14 @@ export default function Home() {
       {/* ---------------------App Projects section Starts-----------------  */}
       <AppProjects />
       {/* ---------------------App Projects section Ends-----------------  */}
+
+      {/* ---------------------Web & CRM Projects section Starts-----------------  */}
+      <FullStackProjects />
+      {/* ---------------------Web & CRM Projects section Ends-----------------  */}
+
+      {/* ---------------------Client Websites section Starts-----------------  */}
+      <OnlinePresence />
+      {/* ---------------------Client Websites section Ends-----------------  */}
 
       {/* ---------------------Blockchain Projects section Starts-----------------  */}
       <BlockchainProjects />

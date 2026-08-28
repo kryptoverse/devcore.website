@@ -47,7 +47,7 @@ function AppProjects() {
                                 />
                             </h2>
                             <p className='text-dark_black/60 dark:text-white/60 mt-4'>
-                                Featured App Projects
+                                Featured Android & iOS Apps
                             </p>
                         </div>
                         <div className='grid md:grid-cols-2 gap-x-6 gap-y-8 w-full'>
