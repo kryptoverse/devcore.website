@@ -115,12 +115,6 @@ const onlinePresenceList = [
 
 const aiProjectsList = [
   {
-    image: 'https://image.thum.io/get/width/1200/crop/787/https://leadsync.me/',
-    title: 'LeadSync',
-    tag: ['Lead Gen', 'Integrations', 'Automation'],
-    link: 'https://leadsync.me/',
-  },
-  {
     image: 'https://image.thum.io/get/width/1200/crop/787/https://healthsync360.com/',
     title: 'HealthSync360',
     tag: ['HealthTech', 'AI Summary', 'Personal Health'],
