@@ -7,8 +7,10 @@ import { gsap, useGSAP } from '@/lib/gsap';
 import { EASE } from '@/lib/motion';
 import { site, socialList } from '@/lib/site';
 import { useReducedMotion } from '@/lib/useReducedMotion';
+import { isVapiConfigured, openVoiceAgent } from '@/lib/vapi';
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
+import { Mic } from 'lucide-react';
 
 const ICONS: Record<string, React.ReactNode> = {
   github: <FaGithub />,
@@ -300,6 +302,27 @@ const Contact = () => {
               <span className="font-mono text-[11px] text-warm/70 uppercase tracking-widest mt-2 block text-center">
                 Click to copy email address
               </span>
+
+              {isVapiConfigured && (
+                <div className="mt-8 pt-6 border-t border-elevated-dark/70 w-full flex flex-col items-center">
+                  <p className="text-xs uppercase tracking-widest text-warm mb-3 font-mono text-center">
+                    Or skip the typing
+                  </p>
+                  <button
+                    type="button"
+                    onClick={openVoiceAgent}
+                    className="group inline-flex items-center gap-3 h-12 pl-4 pr-6 rounded-full bg-accent text-white font-display text-xs font-black uppercase tracking-[0.14em] hover:bg-accent-light transition-colors duration-300 cursor-pointer"
+                  >
+                    <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
+                      <Mic size={14} strokeWidth={2.4} />
+                    </span>
+                    Talk to my AI agent
+                  </button>
+                  <span className="font-mono text-[11px] text-warm/70 uppercase tracking-widest mt-3 block text-center">
+                    Live voice call, right in your browser
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>

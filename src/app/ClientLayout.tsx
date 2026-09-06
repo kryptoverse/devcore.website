@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import GlobalPreloader from '@/components/shared/GlobalPreloader';
 import CustomCursor from '@/components/shared/CustomCursor';
+import VoiceAgentWidget from '@/components/shared/VoiceAgentWidget';
 import Providers from './providers';
 
 declare global {
@@ -70,6 +71,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <Providers>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </Providers>
+
+      <VoiceAgentWidget />
     </>
   );
 }
