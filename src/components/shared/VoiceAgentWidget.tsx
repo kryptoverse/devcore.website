@@ -56,12 +56,35 @@ function describeError(error: unknown): string {
     return 'No microphone found. Plug one in and try again.';
   }
   if (/eject|meeting has ended|room/i.test(text)) {
-    return 'The call ended unexpectedly. Give it another go.';
+    return 'The agent hung up right after connecting. Give it another go.';
   }
   if (/wallet|balance|exceed|quota|limit/i.test(text)) {
     return 'The agent is out of credits right now. Please reach out by email instead.';
   }
   return text ? `Call failed: ${text}` : 'Something went wrong starting the call.';
+}
+
+/**
+ * Vapi reports why a call stopped through a `status-update` message. Daily only ever
+ * says "Meeting has ended", so this is the only place the real cause shows up.
+ */
+function describeEndedReason(reason: string): string {
+  if (/wallet|balance|credit|payment|billing/i.test(reason)) {
+    return 'The agent is out of credits right now. Please reach out by email instead.';
+  }
+  if (/assistant-not-(found|valid)|not-found|forbidden|unauthorized/i.test(reason)) {
+    return 'The agent could not be reached — its ID or public key looks wrong.';
+  }
+  if (/silence-timed-out|customer-did-not-(speak|answer)/i.test(reason)) {
+    return 'The call ended after a long silence. Start another one and say hello.';
+  }
+  if (/exceeded-max-duration/i.test(reason)) {
+    return 'The call hit its time limit.';
+  }
+  if (/pipeline-error|vapifault|provider|voice|transcriber|llm/i.test(reason)) {
+    return `The agent hit a provider error and hung up (${reason}).`;
+  }
+  return `The call ended: ${reason}`;
 }
 
 const VoiceAgentWidget = () => {
@@ -81,6 +104,7 @@ const VoiceAgentWidget = () => {
   const orbRef = useRef<HTMLDivElement>(null);
   const micRingRef = useRef<HTMLDivElement>(null);
   const transcriptRef = useRef<HTMLDivElement>(null);
+  const endedReasonRef = useRef<string | null>(null);
   const agentVolumeRef = useRef(0);
   const micVolumeRef = useRef(0);
   const reduced = useReducedMotion();
@@ -147,6 +171,15 @@ const VoiceAgentWidget = () => {
         micVolumeRef.current = Number.isFinite(volume) ? volume : 0;
       };
       const onMessage = (message: any) => {
+        if (message?.type === 'status-update' && message?.status === 'ended') {
+          const reason = String(message.endedReason ?? '').trim();
+          endedReasonRef.current = reason;
+          if (reason && reason !== 'customer-ended-call') {
+            console.warn('[voice-agent] call ended:', reason, message);
+            setError(describeEndedReason(reason));
+          }
+          return;
+        }
         if (message?.type !== 'transcript') return;
         const text = String(message.transcript ?? '').trim();
         if (!text) return;
@@ -163,10 +196,25 @@ const VoiceAgentWidget = () => {
         ]);
       };
       const onError = (err: any) => {
-        setError(describeError(err));
+        console.warn('[voice-agent] error:', err);
+        /* A reason from status-update is always more specific than Daily's generic error. */
+        const reason = endedReasonRef.current;
+        if (!reason || reason === 'customer-ended-call') {
+          setError(describeError(err));
+        }
+        resetCallState();
+      };
+      const onStartFailed = (event: any) => {
+        console.warn('[voice-agent] call-start-failed:', event);
+        setError(
+          `Could not start the call at the "${event?.stage ?? 'unknown'}" stage. ${String(
+            event?.error ?? '',
+          ).slice(0, 140)}`.trim(),
+        );
         resetCallState();
       };
 
+      vapi.on('call-start-failed', onStartFailed);
       vapi.on('call-start', onCallStart);
       vapi.on('call-end', onCallEnd);
       vapi.on('speech-start', onSpeechStart);
@@ -177,6 +225,7 @@ const VoiceAgentWidget = () => {
       vapi.on('error', onError);
 
       detachRef.current = () => {
+        vapi.removeListener('call-start-failed', onStartFailed);
         vapi.removeListener('call-start', onCallStart);
         vapi.removeListener('call-end', onCallEnd);
         vapi.removeListener('speech-start', onSpeechStart);
@@ -215,6 +264,7 @@ const VoiceAgentWidget = () => {
     setError(null);
     setLines([]);
     setPartial(null);
+    endedReasonRef.current = null;
     setStatus('connecting');
 
     try {
