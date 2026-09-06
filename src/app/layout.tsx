@@ -7,22 +7,12 @@
  * Website: https://devcore.website
  */
 
-import { Metadata } from 'next';
 import { Geist, Geist_Mono, Space_Grotesk, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import ClientLayout from './ClientLayout';
 import { siteMetadata } from '@/lib/metadata';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
-
-export const metadata: Metadata = {
-  title: 'Ammad Waseem — Full-Stack AI Developer | Android & iOS App Engineer',
-  description: "Portfolio of Ammad Waseem, a full-stack AI developer and Android/iOS app engineer. I build AI-powered products and automation systems, mobile apps, full-stack web platforms and CRMs, robust REST APIs, and secure Solidity smart contracts and Web3 dApps. Available for freelance and hire.",
-  icons: {
-    icon: '/icon.svg',
-  },
-}
-
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
