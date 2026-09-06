@@ -9,14 +9,17 @@ import AnimatedButton from '@/components/ui/AnimatedButton';
 import { gsap, SplitText, useGSAP } from '@/lib/gsap';
 import { EASE } from '@/lib/motion';
 import { FaArrowUp, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { Mic, Phone, PhoneCall } from 'lucide-react';
 import { Project } from '@/lib/projects';
 import { getAdjacentProjects } from '@/lib/projects';
 import { site } from '@/lib/site';
+import { CALL_LIMITS, isVapiConfigured, openVoiceAgent } from '@/lib/vapi';
 
 export default function ProjectDetails({ project }: { project: Project }) {
   const rootRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const { prev, next } = getAdjacentProjects(project.slug);
+  const showVoiceDemo = project.demo === 'voice-agent' && isVapiConfigured;
 
   useGSAP(
     () => {
@@ -114,6 +117,23 @@ export default function ProjectDetails({ project }: { project: Project }) {
               <p className="text-sm md:text-base font-medium">{project.type}</p>
             </div>
             <div className="pd-meta-item col-span-2 sm:col-span-1 flex flex-wrap items-start sm:justify-end gap-2.5">
+              {showVoiceDemo && (
+                <AnimatedButton
+                  onClick={openVoiceAgent}
+                  topText={
+                    <span className="flex items-center gap-2">
+                      <Mic size={13} />
+                      <span>TRY IT LIVE</span>
+                    </span>
+                  }
+                  bottomText={
+                    <span className="flex items-center gap-2">
+                      <span>START CALL ↗</span>
+                    </span>
+                  }
+                  variant="primary"
+                />
+              )}
               {project.liveUrl && (
                 <AnimatedButton
                   as="a"
@@ -176,6 +196,82 @@ export default function ProjectDetails({ project }: { project: Project }) {
             </div>
           ))}
         </div>
+
+        {/* ---------- Live demo band ---------- */}
+        {showVoiceDemo && (
+          <div className="relative overflow-hidden rounded-3xl border border-accent/30 bg-[#141312] mb-20 md:mb-28">
+            <div
+              aria-hidden="true"
+              className="absolute -top-32 -right-24 w-[26rem] h-[26rem] rounded-full pointer-events-none"
+              style={{
+                background: 'radial-gradient(circle, rgba(196,93,62,0.22) 0%, rgba(196,93,62,0) 70%)',
+              }}
+            />
+            <div className="relative px-7 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent mb-5 flex items-center gap-2.5">
+                  <span className="relative flex w-2 h-2">
+                    <span className="absolute inline-flex w-full h-full rounded-full bg-accent opacity-70 motion-safe:animate-ping" />
+                    <span className="relative inline-flex w-2 h-2 rounded-full bg-accent" />
+                  </span>
+                  Live demo · no sign-up
+                </p>
+                <h2 className="font-display font-black uppercase leading-[0.95] tracking-tight text-[clamp(2rem,5vw,3.6rem)] text-white mb-5">
+                  Don&apos;t read about it.
+                  <br />
+                  <span className="font-serif italic font-normal normal-case text-accent-light">
+                    talk to it.
+                  </span>
+                </h2>
+                <p className="text-base sm:text-lg text-light/70 font-sans leading-relaxed max-w-xl">
+                  The agent picks up in your browser. Ask what {site.firstName} builds, what a
+                  project costs, or whether he is free next month — then interrupt it mid-sentence
+                  and watch it stop.
+                </p>
+              </div>
+
+              <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-5">
+                <button
+                  type="button"
+                  onClick={openVoiceAgent}
+                  className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3.5 h-16 px-8 sm:px-10 rounded-full bg-accent text-white font-display text-sm sm:text-base font-black uppercase tracking-[0.14em] hover:bg-accent-light transition-colors duration-300 cursor-pointer shadow-[0_16px_40px_-12px_rgba(196,93,62,0.6)]"
+                >
+                  <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 shrink-0">
+                    <PhoneCall size={17} strokeWidth={2.4} />
+                  </span>
+                  Start the call
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </button>
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-warm leading-relaxed lg:text-right">
+                  Microphone required · {Math.floor(CALL_LIMITS.maxDurationSeconds / 60)} min max
+                  <br />
+                  Best with headphones on
+                </p>
+
+                <div className="w-full pt-5 border-t border-white/[0.08] flex flex-col items-start lg:items-end gap-2">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-warm">
+                    Prefer a real phone call?
+                  </span>
+                  <a
+                    href={`tel:${site.agentPhone}`}
+                    className="group inline-flex items-center gap-2.5 font-display text-xl sm:text-2xl font-black tracking-tight text-white hover:text-accent transition-colors duration-300"
+                  >
+                    <Phone size={18} strokeWidth={2.4} className="text-accent shrink-0" />
+                    <span className="relative">
+                      {site.agentPhoneLabel}
+                      <span className="absolute -bottom-0.5 left-0 w-full h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out block" />
+                    </span>
+                  </a>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-warm/70 lg:text-right">
+                    Same agent, over the phone network
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ---------- Narrative ---------- */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-20 md:mb-28">

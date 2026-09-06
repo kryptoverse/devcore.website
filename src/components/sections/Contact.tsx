@@ -10,7 +10,7 @@ import { useReducedMotion } from '@/lib/useReducedMotion';
 import { isVapiConfigured, openVoiceAgent } from '@/lib/vapi';
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
-import { Mic } from 'lucide-react';
+import { Mic, Phone } from 'lucide-react';
 
 const ICONS: Record<string, React.ReactNode> = {
   github: <FaGithub />,
@@ -321,6 +321,22 @@ const Contact = () => {
                   <span className="font-mono text-[11px] text-warm/70 uppercase tracking-widest mt-3 block text-center">
                     Live voice call, right in your browser
                   </span>
+
+                  <div className="mt-5 flex flex-col items-center">
+                    <span className="font-mono text-[11px] uppercase tracking-widest text-warm/70 mb-2">
+                      Or ring the same agent
+                    </span>
+                    <a
+                      href={`tel:${site.agentPhone}`}
+                      className="group inline-flex items-center gap-2.5 font-display text-lg sm:text-xl font-black tracking-tight text-light hover:text-accent transition-colors duration-300"
+                    >
+                      <Phone size={16} strokeWidth={2.4} className="text-accent" />
+                      <span className="relative">
+                        {site.agentPhoneLabel}
+                        <span className="absolute -bottom-0.5 left-0 w-full h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-400 ease-out block" />
+                      </span>
+                    </a>
+                  </div>
                 </div>
               )}
             </div>

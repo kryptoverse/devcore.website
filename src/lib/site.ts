@@ -9,6 +9,9 @@ export const site = {
   timeZone: 'Asia/Karachi',
   timeZoneLabel: 'PKT',
   url: 'https://devcore.website',
+  /** Phone line answered by the AI receptionist — the same agent as the browser call. */
+  agentPhone: '+18406882882',
+  agentPhoneLabel: '+1 (840) 688-2882',
   tagline: 'Full-Stack AI & Automation Engineer',
   roles: [
     'Full-Stack AI & Automation Engineer',

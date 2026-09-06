@@ -149,6 +149,25 @@ const useHoverPreview = () => {
   return { setFloatingRef, setInnerRef, setImageContainerRef, show, hide, isHovering, mouse };
 };
 
+/** Flags the one project a visitor can try without leaving the page. */
+function LiveDemoBadge({ className = '', dark = false }: { className?: string; dark?: boolean }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-mono text-[10px] uppercase tracking-widest whitespace-nowrap ${
+        dark
+          ? 'bg-accent/15 border border-accent/50 text-accent-light'
+          : 'bg-accent/10 border border-accent/40 text-accent'
+      } ${className}`}
+    >
+      <span className="relative flex w-1.5 h-1.5">
+        <span className="absolute inline-flex w-full h-full rounded-full bg-accent opacity-75 motion-safe:animate-ping" />
+        <span className="relative inline-flex w-1.5 h-1.5 rounded-full bg-accent" />
+      </span>
+      Try it live
+    </span>
+  );
+}
+
 interface MobileSnapProjectsProps {
   projects: Project[];
   router: ReturnType<typeof useRouter>;
@@ -272,6 +291,7 @@ function MobileSnapProjects({ projects, router }: MobileSnapProjectsProps) {
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
+                {project.demo === 'voice-agent' && <LiveDemoBadge dark />}
               </div>
 
               <div className="flex flex-wrap gap-1.5 mb-3">
@@ -566,6 +586,7 @@ export default function ProjectsPage() {
               </div>
 
               <div className="flex-[0_0_200px] text-right flex flex-col justify-end items-end pb-2">
+                {project.demo === 'voice-agent' && <LiveDemoBadge className="mb-auto" />}
                 <span className="font-mono text-xs uppercase tracking-widest text-charcoal group-hover:text-accent transition-colors duration-250 flex items-center gap-1">
                   <span>View Project</span>
                   <span className="inline-block transition-transform duration-200 group-hover:translate-x-1.5">

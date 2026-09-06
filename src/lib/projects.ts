@@ -21,6 +21,8 @@ export interface Project {
   hoverImage: string;
   github: string;
   liveUrl: string;
+  /** Marks a project that is demoed in-page rather than at an external URL. */
+  demo?: 'voice-agent';
 }
 
 const projects: Project[] = [
@@ -68,6 +70,46 @@ const projects: Project[] = [
     hoverImage: '/Projects/bridgedirectory/image.png',
     github: '',
     liveUrl: 'https://bridge-directory.com/',
+  },
+  {
+    id: 5,
+    slug: 'ai-voice-receptionist',
+    title: 'AI Voice Receptionist',
+    type: 'Conversational Voice AI',
+    role: 'AI & Full-Stack Engineer',
+    tech: ['Vapi', 'Next.js 15', 'TypeScript', 'WebRTC', 'Web Audio API', 'Tailwind CSS'],
+    description:
+      'A conversational AI receptionist that answers calls, qualifies enquiries, and books work — reachable either on a real phone number or straight from the browser with one click. The browser demo is embedded in this portfolio, so you can talk to it right now.',
+    overview:
+      'A production voice agent built on Vapi that handles inbound reception: it greets the caller, works out what they need, answers questions about services and availability, and captures the details worth following up on. It runs over a telephone number for real callers, and over WebRTC for anyone who would rather just press a button on a website. The browser client in this portfolio is a custom UI on top of the Vapi web SDK — live transcript, voice-reactive visualiser, mute, and a call timer.',
+    challenge:
+      'A voice agent lives or dies on latency and turn-taking: any lag over about a second and the conversation feels broken, and an agent that cannot be interrupted feels worse than a phone menu. Embedding it in an animation-heavy portfolio added two more constraints — the WebRTC stack could not be allowed to slow the initial page load, and a public key in the browser meant anyone could run up the bill.',
+    solution:
+      'Built the browser client directly on the Vapi web SDK rather than the drop-in widget, so the call UI matches the rest of the site and reacts to real audio levels. The SDK is code-split and only fetched when a visitor opens the widget, keeping it out of the initial bundle. Server-reported call state is surfaced properly, so a failure names its actual cause instead of a generic transport error, and per-visitor call caps plus a hard duration limit keep the running costs bounded.',
+    stats: [
+      { value: 'Web + Phone', label: 'Two ways to call' },
+      { value: 'Live', label: 'Streaming transcript' },
+      { value: '0 kB', label: 'Added to first load' },
+    ],
+    accent: '#C45D3E',
+    myRole: [
+      'Designed and configured the Vapi assistant: greeting, qualification flow, and the fallbacks for questions it should not answer.',
+      'Built a custom browser call client on the Vapi web SDK instead of the drop-in widget, so the UI matches the site.',
+      'Drove a voice-reactive visualiser straight from assistant and microphone audio levels, animated off refs so audio never triggers a React re-render.',
+      'Rendered the live transcript from streaming partial and final results, with the speaking turn attributed to each side.',
+      'Code-split the WebRTC stack behind a hover-prefetched dynamic import, keeping it out of the initial page bundle.',
+      'Surfaced the server-reported end reason for failed calls, so an error names its real cause rather than a generic transport message.',
+      'Added per-visitor call caps and a hard call duration limit to keep a publicly exposed voice agent from running up the bill.',
+    ],
+    images: [
+      '/Projects/ai-voice-receptionist/1.png',
+      '/Projects/ai-voice-receptionist/2.png',
+      '/Projects/ai-voice-receptionist/3.png',
+    ],
+    hoverImage: '/Projects/ai-voice-receptionist/1.png',
+    github: '',
+    liveUrl: '',
+    demo: 'voice-agent',
   },
   {
     id: 2,
