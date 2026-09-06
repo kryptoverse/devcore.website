@@ -1,0 +1,201 @@
+'use client';
+
+import { useRef } from 'react';
+import Image from 'next/image';
+import { gsap, useGSAP } from '@/lib/gsap';
+import AnimatedHeading from '@/components/ui/AnimateHeading';
+import ScrollWordReveal from '@/components/ui/ScrollWordReveal';
+
+const STACK_SECTIONS = [
+  {
+    id: 'frontend',
+    title: 'FRONTEND',
+    technologies: [
+      { name: 'JavaScript', icon: '/Services/js.png' },
+      { name: 'React', icon: '/Services/react.png' },
+      { name: 'Next.js', icon: '/Services/next.webp' },
+      { name: 'Tailwind CSS', icon: '/Services/tailwind.png' },
+      { name: 'Three.js', icon: '/Services/threejs.svg' },
+    ],
+  },
+  {
+    id: 'backend',
+    title: 'BACKEND',
+    technologies: [
+      { name: 'Node.js', icon: '/Services/node.png' },
+      { name: 'Express.js', icon: '/Services/express.png' },
+      { name: 'FastAPI', icon: '/Services/fastapi.svg' },
+    ],
+  },
+  {
+    id: 'database',
+    title: 'DATABASE',
+    technologies: [
+      { name: 'MongoDB', icon: '/Services/mongodb.svg' },
+      { name: 'MySQL', icon: '/Services/mysql.svg' },
+      { name: 'Vector DBs', icon: '/Services/qdrant.svg' },
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'AI & ML',
+    technologies: [
+      { name: 'LLMs', icon: '/Services/openai.svg' },
+      { name: 'Hugging Face', icon: '/Services/huggingface.svg' },
+      { name: 'TensorFlow', icon: '/Services/tensorflow.svg' },
+      { name: 'PyTorch', icon: '/Services/pytorch.svg' },
+      { name: 'OpenCV', icon: '/Services/opencv.svg' },
+      { name: 'Scikit-learn', icon: '/Services/scikitlearn.svg' },
+      { name: 'Pandas', icon: '/Services/pandas.svg' },
+    ],
+  },
+  {
+    id: 'automation',
+    title: 'AUTOMATION',
+    technologies: [
+      { name: 'n8n', icon: '/Services/n8n.svg' },
+      { name: 'Playwright', icon: '/Services/playwright.svg' },
+      { name: 'Selenium', icon: '/Services/selenium.svg' },
+      { name: 'App Script', icon: '/Services/google.svg' },
+      { name: 'Claude Code', icon: '/Services/claude.svg' },
+      { name: 'OpenClaw', icon: '/Services/claude.svg' },
+    ],
+  },
+  {
+    id: 'tools',
+    title: 'TOOLS',
+    technologies: [
+      { name: 'Git', icon: '/Services/git.png' },
+      { name: 'AWS', icon: '/Services/aws.webp' },
+      { name: 'Docker', icon: '/Services/docker.svg' },
+      { name: 'Postman', icon: '/Services/postman-icon.svg' },
+    ],
+  },
+];
+
+const TechStack = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+  const headingWords = [
+    { t: 'MY' },
+    { t: 'TECH' },
+    { t: 'stack', serif: true },
+  ];
+  const descriptionText =
+    'A selection of technologies I use to design, build, and deploy full-stack web applications.';
+
+  useGSAP(
+    () => {
+      sectionRefs.current.forEach((section, index) => {
+        if (!section) return;
+        const items = section.querySelectorAll('.tech-item');
+        const title = titleRefs.current[index];
+
+        gsap.fromTo(
+          title,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1, y: 0, ease: 'power2.out',
+            scrollTrigger: { trigger: section, start: 'top 90%', end: 'top 70%', scrub: true },
+          },
+        );
+        gsap.fromTo(
+          items,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1, y: 0, stagger: 0.2, ease: 'power2.out',
+            scrollTrigger: { trigger: section, start: 'top 90%', end: 'top 70%', scrub: true },
+          },
+        );
+      });
+    },
+    { scope: containerRef },
+  );
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && (window.matchMedia('(pointer: coarse)').matches || !window.matchMedia('(hover: hover)').matches)) return;
+    const img = e.currentTarget.querySelector('img');
+    if (!img) return;
+    gsap.to(img, { rotation: 360, scale: 1.1, duration: 0.6, ease: 'power2.out' });
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && (window.matchMedia('(pointer: coarse)').matches || !window.matchMedia('(hover: hover)').matches)) return;
+    const img = e.currentTarget.querySelector('img');
+    if (!img) return;
+    gsap.to(img, { rotation: 0, scale: 1, duration: 0.5, ease: 'power2.inOut' });
+  };
+
+  return (
+    <section
+      ref={containerRef}
+      id="TechStack"
+      className="bg-ink text-light pt-24 pb-16 md:pt-32 md:pb-20 rounded-b-4xl overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <div className="mb-14 hidden md:block">
+          <AnimatedHeading
+            words={headingWords}
+            className="text-[clamp(2.5rem,7vw,6.5rem)] tracking-tight mb-4"
+          />
+          <ScrollWordReveal
+            text={descriptionText}
+            offset={['start 0.95', 'end 0.7']}
+            className="text-base sm:text-lg md:text-xl text-gray-soft font-sans leading-relaxed"
+          />
+        </div>
+
+        <div className="mb-10 md:hidden">
+          <AnimatedHeading
+            words={[{ t: 'MY' }, { t: 'stack', serif: true }]}
+            className="text-[clamp(2.5rem,7vw,6.5rem)] tracking-tight mb-4"
+          />
+        </div>
+
+        <div className="space-y-24">
+          {STACK_SECTIONS.map((stack, index) => (
+            <div
+              key={stack.id}
+              ref={(el) => { sectionRefs.current[index] = el; }}
+              className="flex flex-col md:flex-row md:items-start md:justify-between gap-4"
+            >
+              <h3
+                ref={(el) => { titleRefs.current[index] = el; }}
+                className="md:w-1/3 text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent-light tracking-tight font-display uppercase"
+              >
+                {stack.title}
+              </h3>
+
+              <div className="md:w-2/3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {stack.technologies.map((tech, i) => (
+                  <div
+                    key={i}
+                    className="tech-item flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-300 hover:bg-elevated-dark/40"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center relative">
+                      <Image
+                        src={tech.icon}
+                        alt={tech.name}
+                        width={40}
+                        height={40}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <p className="text-sm sm:text-base font-mono font-bold text-cream">
+                      {tech.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TechStack;
